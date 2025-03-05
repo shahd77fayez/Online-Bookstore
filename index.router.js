@@ -1,6 +1,7 @@
 import connectDB from "./DB/connection.js";
 import { globalErrorHandling } from "./middlewares/ErrorHandling.js";
 import userRouter from "./routes/user.routes.js";
+import bookRouter from "./routes/book.routes.js";
 
 
 const intiApp = (app,express)=>{
@@ -10,7 +11,7 @@ const intiApp = (app,express)=>{
     app.use(`/user`,userRouter)
     //app.use(`/cart`,)
     //app.use(`/order`,)
-   //app.use(`/book`,)
+   app.use(`/book`,bookRouter)
    //app.use(`/review`,)
    app.use('*',(req,res,next)=>{
     res.send("In-valid Routing please check URL or Method")
