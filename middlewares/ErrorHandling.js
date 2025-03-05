@@ -11,5 +11,5 @@ export const asyncHandler = (func) =>{
 }
 
 export const globalErrorHandling = (error,req,res,next)=>{
-    return res.status(error.status || 400).json({msgError:error.msg,status:error.status})
+    return res.status(error.status || 500).json({msgError:error.msg ||'Something went wrong!',status:error.status})
 }

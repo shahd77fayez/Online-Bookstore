@@ -6,7 +6,7 @@ const userRouter = Router()
 
 userRouter.post('/signup',asyncHandler(userController.signup))
 
-userRouter.patch('/confirm-email',(asyncHandleruserController.confirmEmail))
+userRouter.patch('/confirm-email',asyncHandler(userController.confirmEmail))
 
 userRouter.post('/signin',asyncHandler(userController.signin))
 

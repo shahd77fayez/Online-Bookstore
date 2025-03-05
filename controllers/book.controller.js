@@ -1,4 +1,4 @@
-import Book from '../DB/models/book.model';
+import Book from '../DB/models/book.model.js';
 
 const create = (data) => {
   console.log(data);

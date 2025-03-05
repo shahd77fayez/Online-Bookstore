@@ -1,6 +1,6 @@
 import express from 'express';
 import booksController from '../controllers/book.controller.js';
-import asyncHandler from '../middlewares/ErrorHandling.js';
+import {asyncHandler} from '../middlewares/ErrorHandling.js';
 const router = express.Router();
 
 router.post('/addbook', async (req, res, next) => {
