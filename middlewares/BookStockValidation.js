@@ -1,5 +1,5 @@
 const Book = require("../models/Book");
-import { ErrorClass } from "../middlewares/ErrorClass.js";
+import { ErrorClass } from "./ErrorClass.js";
 import StatusCodes from "http-status-codes";
 
 export const validateBooks = async (books, session) => {

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Order = require('../models/Order');
 const Book = require('../models/Book');
-import { validateBooks } from "../middlewares/BookValidation.js";
+import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { ErrorClass } from "../middlewares/ErrorClass.js";
 
