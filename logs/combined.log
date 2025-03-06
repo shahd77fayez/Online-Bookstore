@@ -1,3 +1,22 @@
 {"level":"info","message":"Fetching all books","timestamp":"2025-03-06T14:55:00.615Z"}
 {"level":"info","message":"Fetching all books","timestamp":"2025-03-06T14:57:56.841Z"}
 {"level":"info","message":"::1 - - [06/Mar/2025:14:57:56 +0000] \"GET /book/allbooks HTTP/1.1\" 200 641 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T14:57:56.847Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:05:15 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:05:15.133Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:05:53 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:05:53.545Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:08:24 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:08:24.363Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:08:34 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:08:34.759Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:11:00 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:11:00.777Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:14:42 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:14:42.774Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:15:11 +0000] \"POST /user/signup HTTP/1.1\" 201 523 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:15:11.841Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-06T18:16:40.117Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-06T18:16:40.760Z","userId":"67c9e6885d399a9cbc367ff3"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:16:40 +0000] \"POST /user/signup HTTP/1.1\" 201 523 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:16:40.768Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-06T18:17:20.290Z"}
+{"level":"info","message":"Email confirmed successfully: gmalak541@gmail.com","timestamp":"2025-03-06T18:17:20.640Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:20 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:20.641Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-06T18:17:30.234Z"}
+{"level":"info","message":"User signed in successfully: gmalak541@gmail.com","timestamp":"2025-03-06T18:17:30.493Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:30 +0000] \"POST /user/signin HTTP/1.1\" 202 257 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:30.494Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:53 +0000] \"PATCH /user/update HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:53.667Z"}
+{"level":"info","message":"User updated successfully: 67c9e6885d399a9cbc367ff3","timestamp":"2025-03-06T18:20:49.372Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:20:49 +0000] \"PATCH /user/update HTTP/1.1\" 200 470 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:20:49.376Z"}
