@@ -1,10 +1,8 @@
 import mongoose from "mongoose";
 import Order from "../DB/models/order.model.js"
-import Book from "../DB/models/book.model.js";
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
-import { ErrorClass } from "../middlewares/ErrorClass.js";
-import { getIO } from '../index.js';
+import { getIO } from '../index.router.js';
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();

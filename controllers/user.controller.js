@@ -176,6 +176,21 @@ export const softDelete = async (req, res, next) => {
       new ErrorClass("User is not Authenticated", StatusCodes.UNAUTHORIZED)
     );
   }
+  
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: "Authorization header missing" });
+  }
+  const token = authorization;
+  if (!token) {
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: "Token missing" });
+  }
+  addToBlackList(token);
+
   const user = await userModel.findByIdAndUpdate(
     { _id },
     { isDeleted: true },
