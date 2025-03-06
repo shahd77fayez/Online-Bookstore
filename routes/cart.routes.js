@@ -1,11 +1,11 @@
 import Router from "express"
 import * as cartController from "../controllers/cart.controller.js"
-import { auth } from "../middlewares/auth"
+import { auth } from "../middlewares/auth.js"
 import { asyncHandler } from "../middlewares/ErrorHandling.js"
 
 const cartRouter = Router()
 
-cartRouter.get('/'.auth(),asyncHandler(cartController.getAllItems));
+cartRouter.get('/',auth(),asyncHandler(cartController.getAllItems));
 
 cartRouter.patch('/add-to-cart',auth(),asyncHandler(cartController.addItemToCart))
 

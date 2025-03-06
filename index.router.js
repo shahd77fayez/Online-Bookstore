@@ -3,6 +3,7 @@ import { globalErrorHandling } from "./middlewares/ErrorHandling.js";
 import userRouter from "./routes/user.routes.js";
 import bookRouter from "./routes/book.routes.js";
 import orderRouter from "./routes/order.routes.js";
+import cartRouter from "./routes/cart.routes.js";
 
 
 const intiApp = (app, express) => {
@@ -10,7 +11,7 @@ const intiApp = (app, express) => {
     app.use(express.json({}))
     //Setup API Routing
     app.use(`/user`, userRouter)
-    //app.use(`/cart`,)
+    app.use(`/cart`,cartRouter)
     app.use(`/order`, orderRouter)
     app.use(`/book`, bookRouter)
     //app.use(`/review`,)
