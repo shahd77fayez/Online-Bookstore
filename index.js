@@ -1,11 +1,10 @@
 import dotenv from "dotenv"
+dotenv.config();
+
 import { createServer } from 'http';
 import express from "express"
 import {initApp} from "./index.router.js"
 import { initSocket } from "./index.router.js";
-
-dotenv.config({path:"./config/.env"});
-
 const app = express();
 const httpServer = createServer(app);
 
