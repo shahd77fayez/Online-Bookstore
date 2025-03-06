@@ -1,45 +1,50 @@
 import { Review } from '../DB/models/review.model.js';
 import { reviewValidation } from '../validation/review.validation.js';
-import  Book  from '../DB/models/book.model.js';
+import  Books  from '../DB/models/book.model.js';
 
 // Create a new review
 export const createReview = async (req, res) => {
-    // Validate request body
-    const { error } = reviewValidation.createReview.validate(req.body);
-    if (error) {
-        return res.status(400).json({ message: error.details[0].message });
+    try {
+        // Validate request body
+        const { error } = reviewValidation.createReview.validate(req.body);
+        if (error) {
+            return res.status(400).json({ message: error.details[0].message });
+        }
+
+        // Check if book exists
+        const book = await Books.findById(req.body.book);
+        if (!book) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+
+        // Check if user has already reviewed this book
+        const existingReview = await Review.findOne({
+            user: req.user._id,
+            book: req.body.book
+        });
+        if (existingReview) {
+            return res.status(400).json({ message: 'You have already reviewed this book' });
+        }
+
+        // Create review
+        const review = new Review({
+            user: req.user._id,
+            book: req.body.book,
+            rating: req.body.rating,
+            review: req.body.review
+        });
+
+        await review.save();
+
+        // Populate user and book details
+        await review.populate('user', 'name email');
+        await review.populate('book', 'title author');
+
+        res.status(201).json(review);
+    } catch (error) {
+        console.error('Error creating review:', error);
+        res.status(500).json({ msgError: "Something went wrong!", details: error.message });
     }
-
-    // Check if book exists
-    const book = await Book.findById(req.body.book);
-    if (!book) {
-        return res.status(404).json({ message: 'Book not found' });
-    }
-
-    // Check if user has already reviewed this book
-    const existingReview = await Review.findOne({
-        user: req.user._id,
-        book: req.body.book
-    });
-    if (existingReview) {
-        return res.status(400).json({ message: 'You have already reviewed this book' });
-    }
-
-    // Create review
-    const review = new Review({
-        user: req.user._id,
-        book: req.body.book,
-        rating: req.body.rating,
-        review: req.body.review
-    });
-
-    await review.save();
-
-    // Populate user and book details
-    await review.populate('user', 'name email');
-    await review.populate('book', 'title author');
-
-    res.status(201).json(review);
 };
 
 // Get all reviews for a book
@@ -83,6 +88,7 @@ export const updateReview = async (req, res) => {
     }
 
     if (review.user.toString() !== req.user._id.toString()) {
+        console.log(review.user.toString(), req.user._id.toString());
         return res.status(403).json({ message: 'You can only update your own reviews' });
     }
 

@@ -10,11 +10,6 @@ const validateObjectId = (value, helpers) => {
 
 const reviewValidation = {
     createReview: Joi.object({
-        user: Joi.string().custom(validateObjectId, 'validate ObjectId').required()
-            .messages({
-                'any.invalid': 'Invalid user ID format',
-                'any.required': 'User ID is required'
-            }),
         book: Joi.string().custom(validateObjectId, 'validate ObjectId').required()
             .messages({
                 'any.invalid': 'Invalid book ID format',
