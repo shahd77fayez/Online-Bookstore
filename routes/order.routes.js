@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
-const orderController = require('../controllers/orderController'); 
+import express from "express";
+import { placeOrder, getOrderHistory } from "../controllers/order.controller.js";
 import { validateRequest } from "../middlewares/ValidateRequest.js";
 import { orderSchema } from "../middlewares/OrderValidation.js";
 
+const orderRouter = express.Router();
 
-router.route('/')
-  .post( validateRequest(orderSchema),orderController.placeOrder)
-  .get(orderController.getOrderHistory); 
+orderRouter.route("/")
+  .post(validateRequest(orderSchema), placeOrder)
+  .get(getOrderHistory);
 
-module.exports = router;
+export default orderRouter;

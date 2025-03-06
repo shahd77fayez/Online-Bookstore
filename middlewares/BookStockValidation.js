@@ -1,4 +1,4 @@
-const Book = require("../models/Book");
+import Book from "../DB/models/book.model.js";
 import { ErrorClass } from "./ErrorClass.js";
 import StatusCodes from "http-status-codes";
 
