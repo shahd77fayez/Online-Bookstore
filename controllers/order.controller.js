@@ -3,15 +3,23 @@ import Order from "../DB/models/order.model.js"
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { getIO } from '../index.router.js';
+<<<<<<< HEAD
 import { ErrorClass } from "../middlewares/ErrorClass.js";
+=======
+import logger from "../middlewares/logger.js";
+>>>>>>> dfc2163c146935701a8ca480c2d8009ac593ace0
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
     session.startTransaction();
     try {
+<<<<<<< HEAD
         if (!req.user || !req.user.id) {
             throw new ErrorClass("Unauthorized: Please log in to place an order.", StatusCodes.UNAUTHORIZED);
         }
+=======
+        logger.info(`Placing order for user ${req.user.id}`);
+>>>>>>> dfc2163c146935701a8ca480c2d8009ac593ace0
         const { books } = req.body;
         const totalPrice = await validateBooks(books, session);
         const order = new Order({ user: req.user.id, books, totalPrice });
@@ -19,6 +27,7 @@ export const placeOrder = async (req, res, next) => {
 
         await session.commitTransaction();
         session.endSession();
+        logger.info(`Order ${order._id} placed successfully for user ${req.user.id}`);
 
         // Emit socket event for new order
         const io = getIO();
@@ -40,23 +49,24 @@ export const placeOrder = async (req, res, next) => {
     } catch (error) {
         await session.abortTransaction();
         session.endSession();
-
-        const statusCode = error.statusCode || StatusCodes.INTERNAL_SERVER_ERROR;
-
-        return res.status(statusCode).json({ 
-            message: `🚨 ${error.message || "Something went wrong!"}` 
-        });
-    } 
+        logger.error(`Error placing order for user ${req.user.id}: ${error.message}`);
+        next(error);
+    }
 };
 
 export const getOrderHistory = async (req, res) => {
     try {
+        logger.info(`Fetching order history for user ${req.user.id}`);
         const orders = await Order.find({ user: req.user.id })
-            .populate('books.book', 'title author price')
-            .sort({ createdAt: -1 });   
-            res.status(StatusCodes.OK).json({ message: "Order history retrieved successfully", orders });
+        .populate('books.book', 'title author price')
+        .sort({ createdAt: -1 });  
+        res.status(StatusCodes.OK).json({ message: "Order history retrieved successfully", orders });
+
     } catch (error) {
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR)
-        .json({ message: `Server error: ${error.message}` });
+        logger.error(`Error fetching order history for user ${req.user.id}: ${error.message}`);
+        res
+            .status(StatusCodes.INTERNAL_SERVER_ERROR)
+            .json({ message: `Server error: ${error.message}` });
+
     }
 };
