@@ -1,58 +1,22 @@
 {"level":"info","message":"Fetching all books","timestamp":"2025-03-06T14:55:00.615Z"}
 {"level":"info","message":"Fetching all books","timestamp":"2025-03-06T14:57:56.841Z"}
 {"level":"info","message":"::1 - - [06/Mar/2025:14:57:56 +0000] \"GET /book/allbooks HTTP/1.1\" 200 641 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T14:57:56.847Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T19:55:14.354Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:19:55:14 +0000] \"POST /book/addbook HTTP/1.1\" 201 296 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T19:55:14.366Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T19:56:47.537Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:19:56:47 +0000] \"POST /book/addbook HTTP/1.1\" 201 219 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T19:56:47.541Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T19:57:19.792Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:19:57:19 +0000] \"POST /book/addbook HTTP/1.1\" 201 205 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T19:57:19.795Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T19:57:39.766Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:19:57:39 +0000] \"GET /book//allbooks HTTP/1.1\" 200 631 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T19:57:39.768Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:19:59:06 +0000] \"GET /book//allbooks HTTP/1.1\" 200 583 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T19:59:06.613Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:08:38 +0000] \"DELETE /book/1 HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:08:38.405Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:13:59 +0000] \"DELETE /book/1 HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:13:59.100Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:14:39 +0000] \"DELETE /book/1 HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:14:39.269Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:15:11 +0000] \"DELETE /book/18 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:15:11.995Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:15:18 +0000] \"DELETE /book/19 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:15:18.900Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:15:24 +0000] \"DELETE /book/20 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:15:24.607Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:15:30 +0000] \"GET /book/allbooks HTTP/1.1\" 200 583 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:15:30.820Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:15:42 +0000] \"GET /book/allbooks HTTP/1.1\" 200 583 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:15:42.132Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:43:42 +0000] \"DELETE /book/18 HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:43:42.201Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:43:53 +0000] \"GET /book/allbooks HTTP/1.1\" 200 583 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:43:53.532Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T20:44:12.710Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:44:12 +0000] \"POST /book/addbook HTTP/1.1\" 201 207 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:44:12.713Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T20:44:22.233Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:44:22 +0000] \"GET /book/allbooks HTTP/1.1\" 200 210 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:44:22.235Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:44:45 +0000] \"DELETE /book/21 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:44:45.784Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:44:51 +0000] \"GET /book/allbooks HTTP/1.1\" 200 162 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:44:51.313Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:45:01 +0000] \"GET /book/allbooks HTTP/1.1\" 200 162 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:45:01.214Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T20:48:54.415Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:48:54 +0000] \"POST /book/addbook HTTP/1.1\" 201 207 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:48:54.427Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T20:49:02.605Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:49:02 +0000] \"GET /book/allbooks HTTP/1.1\" 200 210 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:49:02.608Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T20:49:14.320Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:49:14 +0000] \"POST /book/addbook HTTP/1.1\" 201 221 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:49:14.324Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T20:49:22.265Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:49:22 +0000] \"POST /book/addbook HTTP/1.1\" 201 298 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:49:22.267Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T20:49:44.179Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:49:44 +0000] \"GET /book/allbooks HTTP/1.1\" 200 637 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:49:44.182Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:50:26 +0000] \"DELETE /book/22 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:50:26.676Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:50:31 +0000] \"GET /book/allbooks HTTP/1.1\" 200 589 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:50:31.873Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:50:46 +0000] \"DELETE /book/22 HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:50:46.233Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:50:51 +0000] \"GET /book/allbooks HTTP/1.1\" 200 589 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:50:51.425Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:53:20 +0000] \"GET /book/allbooks HTTP/1.1\" 200 589 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:53:20.470Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:53:38 +0000] \"DELETE /book/23 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:53:38.887Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:53:43 +0000] \"GET /book/allbooks HTTP/1.1\" 200 589 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:53:43.718Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T20:54:14.732Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:54:14 +0000] \"POST /book/addbook HTTP/1.1\" 201 228 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:54:14.737Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T20:54:30.828Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:20:54:30 +0000] \"GET /book/allbooks HTTP/1.1\" 200 483 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T20:54:30.831Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T22:02:36.627Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:22:02:36 +0000] \"GET /book/allbooks HTTP/1.1\" 200 483 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:02:36.635Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:22:03:03 +0000] \"DELETE /book/24 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:03:03.995Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:22:03:11 +0000] \"GET /book/allbooks HTTP/1.1\" 200 183 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:03:11.089Z"}
-{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T22:04:20.588Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:22:04:20 +0000] \"POST /book/addbook HTTP/1.1\" 201 223 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:04:20.591Z"}
-{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T22:04:25.391Z"}
-{"level":"info","message":"::1 - - [06/Mar/2025:22:04:25 +0000] \"GET /book/allbooks HTTP/1.1\" 200 408 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:04:25.393Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:05:15 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:05:15.133Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:05:53 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:05:53.545Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:08:24 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:08:24.363Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:08:34 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:08:34.759Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:11:00 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:11:00.777Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:14:42 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:14:42.774Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:15:11 +0000] \"POST /user/signup HTTP/1.1\" 201 523 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:15:11.841Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-06T18:16:40.117Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-06T18:16:40.760Z","userId":"67c9e6885d399a9cbc367ff3"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:16:40 +0000] \"POST /user/signup HTTP/1.1\" 201 523 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:16:40.768Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-06T18:17:20.290Z"}
+{"level":"info","message":"Email confirmed successfully: gmalak541@gmail.com","timestamp":"2025-03-06T18:17:20.640Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:20 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:20.641Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-06T18:17:30.234Z"}
+{"level":"info","message":"User signed in successfully: gmalak541@gmail.com","timestamp":"2025-03-06T18:17:30.493Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:30 +0000] \"POST /user/signin HTTP/1.1\" 202 257 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:30.494Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:17:53 +0000] \"PATCH /user/update HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:53.667Z"}
+{"level":"info","message":"User updated successfully: 67c9e6885d399a9cbc367ff3","timestamp":"2025-03-06T18:20:49.372Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:18:20:49 +0000] \"PATCH /user/update HTTP/1.1\" 200 470 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:20:49.376Z"}

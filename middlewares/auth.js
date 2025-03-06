@@ -18,13 +18,11 @@ export const auth = () => {
       if (!authorization) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Please login first" });
       }
-
-      const token = authorization.split(" ")[1]; 
+      const token = authorization.trim(); 
       
       if (!token) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Token missing" });
       }
-
       // Check if token is blacklisted
       if (isTokenBlackListed(token)) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Token is blacklisted" });
@@ -32,6 +30,7 @@ export const auth = () => {
 
       // Verify token
       const decoded = Jwt.verify(token, process.env.TOKEN_SIGNATURE);
+
       if (!decoded?.id) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Invalid token payload" });
       }

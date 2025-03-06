@@ -7,6 +7,7 @@ import StatusCodes from "http-status-codes";
 import { nanoid } from "nanoid";
 import CryptoJS from "crypto-js";
 import bcrypt from "bcryptjs";
+import logger from "../middlewares/logger.js";
 //1]==================== Sign Up =====================
 //=============( hash password , encrypt phone )=================
 export const signup = async (req, res, next) => {
@@ -165,6 +166,9 @@ export const changePass = async (req, res, next) => {
   }
   const { oldpass, newpass } = req.body;
   logger.info(`User ID: ${_id} - Initiating password change`, { userId: _id });
+  
+  // Find the user by ID
+  const userExist = await userModel.findById(_id);
   if (!userExist) {
     logger.error(`User ID: ${_id} not found`, { userId: _id });
     return next(new ErrorClass(`User not found`, StatusCodes.NOT_FOUND));
