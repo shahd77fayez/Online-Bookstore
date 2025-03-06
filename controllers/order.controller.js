@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Order from "../DB/models/order.model.js";
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
-import { ErrorClass } from "../middlewares/ErrorClass.js";
+
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
