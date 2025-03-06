@@ -3,23 +3,17 @@ import Order from "../DB/models/order.model.js"
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { getIO } from '../index.router.js';
-<<<<<<< HEAD
 import { ErrorClass } from "../middlewares/ErrorClass.js";
-=======
 import logger from "../middlewares/logger.js";
->>>>>>> dfc2163c146935701a8ca480c2d8009ac593ace0
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
     session.startTransaction();
     try {
-<<<<<<< HEAD
         if (!req.user || !req.user.id) {
             throw new ErrorClass("Unauthorized: Please log in to place an order.", StatusCodes.UNAUTHORIZED);
         }
-=======
         logger.info(`Placing order for user ${req.user.id}`);
->>>>>>> dfc2163c146935701a8ca480c2d8009ac593ace0
         const { books } = req.body;
         const totalPrice = await validateBooks(books, session);
         const order = new Order({ user: req.user.id, books, totalPrice });
