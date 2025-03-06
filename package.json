@@ -26,6 +26,7 @@
     "nanoid": "^5.1.2",
     "nodemailer": "^6.10.0",
     "nodemon": "^3.1.9",
+    "socket.io": "^4.8.1",
     "winston": "^3.17.0"
   }
 }

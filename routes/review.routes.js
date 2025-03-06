@@ -16,7 +16,6 @@ const router = express.Router();
 router.get('/book/:bookId', asyncHandler(getBookReviews));
 
 // Protected routes (require authentication)
-//router.use(isAuthenticated);
 router.use(auth());
 
 router.post('/', asyncHandler(createReview));

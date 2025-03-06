@@ -4,6 +4,7 @@ import Book from "../DB/models/book.model.js";
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { ErrorClass } from "../middlewares/ErrorClass.js";
+import { getIO } from '../index.js';
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
@@ -19,6 +20,19 @@ export const placeOrder = async (req, res, next) => {
         await session.commitTransaction();
         session.endSession();
 
+        // Emit socket event for new order
+        const io = getIO();
+        const populatedOrder = await Order.findById(order._id)
+            .populate('user', 'name email')
+            .populate('books.book', 'title author price');
+
+        io.emit('newOrder', {
+            orderId: order._id,
+            user: populatedOrder.user,
+            totalPrice: order.totalPrice,
+            books: populatedOrder.books
+        });
+
         res
             .status(StatusCodes.CREATED)
             .json({ message: "Order created successfully", order });
@@ -29,7 +43,6 @@ export const placeOrder = async (req, res, next) => {
         next(error);
     }
 };
-
 
 export const getOrderHistory = async (req, res) => {
     try {
