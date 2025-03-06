@@ -1,11 +1,10 @@
-const mongoose = require("mongoose");
-const Order = require('../models/Order');
-const Book = require('../models/Book');
+import mongoose from "mongoose";
+import Order from "../DB/models/order.model.js";
 import { validateBooks } from "../middlewares/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { ErrorClass } from "../middlewares/ErrorClass.js";
 
-exports.placeOrder = async (req, res, next) => {
+export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
     session.startTransaction();
 
@@ -31,7 +30,7 @@ exports.placeOrder = async (req, res, next) => {
 };
 
 
-exports.getOrderHistory = async (req, res) => {
+export const getOrderHistory  = async (req, res) => {
     try {
         const orders = await Order.find({ user: req.user.id }).populate('books.book');
         res
