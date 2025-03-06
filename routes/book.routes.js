@@ -1,41 +1,49 @@
 import express from 'express';
-import booksController from '../controllers/book.controller.js';
+import {
+  create,
+  getAll,
+  getById,
+  updateById,
+  deleteById
+} from '../controllers/book.controller.js';
 import {asyncHandler} from '../middlewares/ErrorHandling.js';
 const router = express.Router();
 
-router.post('/addbook', async (req, res, next) => {
-  console.log(req.body);
-  const [err, data] = await asyncHandler(booksController.create(req.body));
+router.post('/addbook', asyncHandler(async (req, res, next) => {
+  try {
+    const data = await create(req.body);
+    res.status(StatusCodes.CREATED).send({ data });
+  } catch (error) {
+    next(new ErrorClass(error.message, StatusCodes.BAD_REQUEST));
+  }
+}));
 
-  if (!err) return res.send({data});
-  new ErrorClass(err,StatusCodes.CONFLICT);
-});
-router.get('/allbooks', async (req, res, next) => {
-  const [err, data] = await asyncHandler(booksController.getAll());
+router.get('/allbooks', asyncHandler(async (req, res, next) => {
+  try {
+    const data = await getAll();
+    if (!data.length) return next(new ErrorClass('No books found', StatusCodes.NOT_FOUND));
+    res.send({ data });
+  } catch (error) {
+    next(new ErrorClass(error.message, StatusCodes.INTERNAL_SERVER_ERROR));
+  }
+}));
 
-  if (!err) return res.send({data});
+router.get('/:id', asyncHandler(async (req, res, next) => {
+  const data = await getById(req.params.id);
+  if (!data) return next(new ErrorClass('Book not found', StatusCodes.NOT_FOUND));
+  res.send({ data });
+}));
 
-  next(new CustomError(err.message, 422));
-});
-router.get('/:id', async (req, res, next) => {
-  const [err, data] = await asyncHandler(booksController.getById(req.params.id));
+router.patch('/:id', asyncHandler(async (req, res, next) => {
+  const data = await updateById(req.params.id, req.body);
+  if (!data) return next(new ErrorClass('Book not found', StatusCodes.NOT_FOUND));
+  res.send({ data });
+}));
 
-  if (!err) return res.send({data});
-  
-
-  new ErrorClass(err,StatusCodes.CONFLICT);
-});
-router.patch('/:id', async (req, res, next) => {
-  const [err, data] = await asyncHandler(booksController.updateById(req.params.id, req.body));
-
-  if (!err) return res.send({data});
-  new ErrorClass(err,StatusCodes.CONFLICT);
-});
-router.delete('/:id', async (req, res, next) => {
-  const [err, data] = await asyncHandler(booksController.deleteById(req.params.id));
-
-  if (!err) return res.send({data});
-  new ErrorClass(err,StatusCodes.CONFLICT);
-});
+router.delete('/:id', asyncHandler(async (req, res, next) => {
+  const data = await deleteById(req.params.id);
+  if (!data) return next(new ErrorClass('Book not found', StatusCodes.NOT_FOUND));
+  res.send({ message: 'Book deleted successfully' });
+}));
 
 export default router;
