@@ -1,3 +1,4 @@
+import { Server } from 'socket.io';
 import connectDB from "./DB/connection.js";
 import { globalErrorHandling } from "./middlewares/ErrorHandling.js";
 import userRouter from "./routes/user.routes.js";
@@ -7,22 +8,51 @@ import cartRouter from "./routes/cart.routes.js";
 import reviewRouter from "./routes/review.routes.js";
 import notificationRouter from "./routes/notification.routes.js";
 
-const intiApp = (app, express) => {
-    //Convert Buffer Data
-    app.use(express.json({}))
-    //Setup API Routing
-    app.use(`/user`, userRouter)
-    app.use(`/cart`,cartRouter)
-    app.use(`/order`, orderRouter)
-    app.use(`/book`, bookRouter)
-    app.use(`/review`,reviewRouter)
-    app.use(`/notifications`, notificationRouter)
+let io;
+
+export const initApp = (app, express) => {
+    // Convert Buffer Data
+    app.use(express.json({}));
+
+    // Setup API Routing
+    app.use(`/user`, userRouter);
+    app.use(`/cart`, cartRouter);
+    app.use(`/order`, orderRouter);
+    app.use(`/book`, bookRouter);
+    app.use(`/review`, reviewRouter);
+    app.use(`/notifications`, notificationRouter);
+
+    // Handle Invalid Routes
     app.use('*', (req, res, next) => {
-        res.send("In-valid Routing please check URL or Method")
-    })
-    app.use(globalErrorHandling)
+        console.warn(`Invalid Route: ${req.method} ${req.originalUrl}`);
+        res.status(404).send("Invalid Routing. Please check URL or Method.");
+    });
 
-    connectDB()
-}
+    // Global Error Handling Middleware
+    app.use(globalErrorHandling);
 
-export default intiApp
+    // Connect to Database
+    connectDB();
+};
+
+export const initSocket = (httpServer) => {
+    io = new Server(httpServer, {
+        cors: {
+            origin: process.env.FRONTEND_URL || "*",
+            methods: ["GET", "POST"]
+        }
+    });
+
+    io.on('connection', (socket) => {
+        console.log(`Client connected: ${socket.id}`);
+
+        socket.on('disconnect', () => {
+            console.log(`Client disconnected: ${socket.id}`);
+        });
+    });
+};
+
+export const getIO = () => {
+    if (!io) throw new Error("Socket.io not initialized!");
+    return io;
+};
