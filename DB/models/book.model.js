@@ -14,9 +14,9 @@ const BooksSchema = new mongoose.Schema({
     minLength: 8,
   },
   author: {
-    type: Number,
-    ref: 'authors',
+    type: String,
     required: true,
+    trim: true,
   },
   price: {
     type: Number,
