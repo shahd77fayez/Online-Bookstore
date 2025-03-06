@@ -1,5 +1,4 @@
-import Notification from '../DB/notification.model.js';
-
+import Notification from '../DB/models/notification.model.js';
 // Validation helper
 const validateNotificationInput = (type, title, message) => {
     const errors = [];
