@@ -1,6 +1,6 @@
 import { Review } from '../DB/models/review.model.js';
 import { reviewValidation } from '../validation/review.validation.js';
-import { Book } from '../DB/models/book.model.js';
+import  Book  from '../DB/models/book.model.js';
 
 // Create a new review
 export const createReview = async (req, res) => {

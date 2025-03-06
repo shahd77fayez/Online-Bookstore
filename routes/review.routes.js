@@ -1,5 +1,6 @@
 import express from 'express';
-import { isAuthenticated } from '../middleware/auth.middleware.js';
+//import { isAuthenticated } from '../middleware/auth.js';
+import { auth } from '../middlewares/auth.js';
 import { asyncHandler } from '../middlewares/ErrorHandling.js';
 import {
     createReview,
@@ -15,7 +16,8 @@ const router = express.Router();
 router.get('/book/:bookId', asyncHandler(getBookReviews));
 
 // Protected routes (require authentication)
-router.use(isAuthenticated);
+//router.use(isAuthenticated);
+router.use(auth());
 
 router.post('/', asyncHandler(createReview));
 router.get('/user/me', asyncHandler(getUserReviews));
