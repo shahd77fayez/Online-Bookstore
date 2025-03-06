@@ -1,6 +1,6 @@
 import express from 'express';
 import { isAuthenticated } from '../middleware/auth.middleware.js';
-import { asyncHandler } from '../middleware/error.middleware.js';
+import { asyncHandler } from '../middlewares/ErrorHandling.js';
 import {
     createReview,
     getBookReviews,
