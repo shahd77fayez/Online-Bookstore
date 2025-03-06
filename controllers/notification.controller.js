@@ -81,8 +81,9 @@ export const notificationController = {
                 { new: true }
             );
             if (!notification) {
-                return res.status(404).json({ message: 'Notification not found' });
                 logger.warn(`Notification ${req.params.id} not found for user ${req.user._id}`);
+                return res.status(404).json({ message: 'Notification not found' });
+                
             }
             res.json(notification);
         } catch (error) {

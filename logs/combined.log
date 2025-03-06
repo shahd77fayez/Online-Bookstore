@@ -20,3 +20,23 @@
 {"level":"info","message":"::1 - - [06/Mar/2025:18:17:53 +0000] \"PATCH /user/update HTTP/1.1\" 401 27 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:17:53.667Z"}
 {"level":"info","message":"User updated successfully: 67c9e6885d399a9cbc367ff3","timestamp":"2025-03-06T18:20:49.372Z"}
 {"level":"info","message":"::1 - - [06/Mar/2025:18:20:49 +0000] \"PATCH /user/update HTTP/1.1\" 200 470 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T18:20:49.376Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T22:42:54.957Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:42:54 +0000] \"POST /book/addbook HTTP/1.1\" 201 210 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:42:54.966Z"}
+{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T22:42:59.651Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:42:59 +0000] \"GET /book/allbooks HTTP/1.1\" 200 572 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:42:59.653Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:44:45 +0000] \"PATCH /book/27 HTTP/1.1\" 200 210 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:44:45.125Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:45:16 +0000] \"PATCH /book/27 HTTP/1.1\" 200 221 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:45:16.681Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:45:23 +0000] \"GET /book/allbooks HTTP/1.1\" 200 535 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:45:23.161Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:57:55 +0000] \"GET /book/allbooks HTTP/1.1\" 200 535 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:57:55.455Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:58:16 +0000] \"DELETE /book/25 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:58:16.676Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:58:22 +0000] \"DELETE /book/26 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:58:22.048Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:58:26 +0000] \"DELETE /book/27 HTTP/1.1\" 200 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:58:26.417Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:58:30 +0000] \"GET /book/allbooks HTTP/1.1\" 200 2 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:58:30.907Z"}
+{"level":"error","message":"Error creating book: Books validation failed: reviews.0: Cast to [ObjectId] failed for value \"[ '1' ]\" (type string) at path \"reviews.0\" because of \"CastError\"","timestamp":"2025-03-06T23:43:12.430Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:23:43:12 +0000] \"POST /book/addbook HTTP/1.1\" 400 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T23:43:12.437Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-06T23:43:56.713Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:23:43:56 +0000] \"POST /book/addbook HTTP/1.1\" 201 341 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T23:43:56.717Z"}
+{"level":"error","message":"Error creating book: Books validation failed: title: Path `title` (`a`) is shorter than the minimum allowed length (3)., author: Path `author` is required., price: Path `price` (-5) is less than minimum allowed value (0)., stock: Validator failed for path `stock` with value `3.5`","timestamp":"2025-03-06T23:45:17.556Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:23:45:17 +0000] \"POST /book/addbook HTTP/1.1\" 400 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T23:45:17.557Z"}
+{"level":"info","message":"Fetching all books","timestamp":"2025-03-06T23:46:46.404Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:23:46:46 +0000] \"GET /book/allbooks HTTP/1.1\" 200 344 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T23:46:46.407Z"}

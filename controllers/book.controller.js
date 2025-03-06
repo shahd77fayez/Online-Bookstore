@@ -2,9 +2,12 @@ import Book from '../DB/models/book.model.js';
 import logger from '../middlewares/logger.js';
 import { ErrorClass } from '../middlewares/ErrorClass.js';
 import redisClient from '../config/config-redis.js';
+import { bookSchemaValidation } from "../middlewares/bookValidation.js";
 
 export const create = async (req, res, next) => {
   try {
+    const { err } = bookSchemaValidation.validate(req.body);
+    if (err) return next(new ErrorClass(err.message, 500));
     const newBook = await Book.create(req.body);
     logger.info('Book created successfully');
 
