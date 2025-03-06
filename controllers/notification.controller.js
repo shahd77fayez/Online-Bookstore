@@ -1,4 +1,5 @@
 import Notification from '../DB/models/notification.model.js';
+import logger from "../middlewares/logger.js"
 // Validation helper
 const validateNotificationInput = (type, title, message) => {
     const errors = [];
@@ -21,6 +22,8 @@ export const notificationController = {
             const page = parseInt(req.query.page) || 1;
             const limit = parseInt(req.query.limit) || 10;
             const skip = (page - 1) * limit;
+
+            logger.info(`Fetching notifications for user ${req.user._id}`);
 
             // Use the filter query built by middleware
             const filterQuery = req.filterQuery || { recipient: req.user._id };
@@ -61,6 +64,7 @@ export const notificationController = {
                 recipient: req.user._id,
                 isRead: false
             });
+            logger.info(`Unread notifications count for user ${req.user._id}: ${count}`);
             res.json({ unreadCount: count });
         } catch (error) {
             res.status(500).json({ message: 'Error fetching unread count', error: error.message });
@@ -70,6 +74,7 @@ export const notificationController = {
     // Mark notification as read
     async markAsRead(req, res) {
         try {
+            logger.info(`User ${req.user._id} marking notification ${req.params.id} as read`);
             const notification = await Notification.findOneAndUpdate(
                 { _id: req.params.id, recipient: req.user._id },
                 { isRead: true },
@@ -77,6 +82,7 @@ export const notificationController = {
             );
             if (!notification) {
                 return res.status(404).json({ message: 'Notification not found' });
+                logger.warn(`Notification ${req.params.id} not found for user ${req.user._id}`);
             }
             res.json(notification);
         } catch (error) {
@@ -87,6 +93,7 @@ export const notificationController = {
     // Mark all notifications as read
     async markAllAsRead(req, res) {
         try {
+            logger.info(`User ${req.user._id} marking all notifications as read`);
             await Notification.updateMany(
                 { recipient: req.user._id, isRead: false },
                 { isRead: true }
@@ -121,7 +128,7 @@ export const notificationController = {
             });
 
             await notification.save();
-            
+            logger.info(`Notification created for user ${recipientId} - Type: ${type}, Title: ${title}`);
             // Return populated notification
             return await notification.populate('relatedItem', 'title name status');
         } catch (error) {
@@ -141,8 +148,8 @@ export const notificationController = {
                 isRead: true,
                 createdAt: { $lt: thirtyDaysAgo }
             });
-
-            console.log(`Cleaned up ${result.deletedCount} old notifications`);
+            logger.info(`Cleaned up ${result.deletedCount} old notifications`);
+            //console.log(`Cleaned up ${result.deletedCount} old notifications`);
             return result.deletedCount;
         } catch (error) {
             console.error('Error cleaning up old notifications:', error);
@@ -150,5 +157,3 @@ export const notificationController = {
         }
     }
 };
-
-
