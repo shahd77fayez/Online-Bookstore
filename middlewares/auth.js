@@ -1,7 +1,7 @@
 import Jwt from "jsonwebtoken";
 import userModel from "../DB/models/user.model.js";
 import { StatusCodes } from "http-status-codes";
-import { isTokenBlackListed } from "./TokenBlackList.js"
+import  {isTokenBlackListed}  from "./TokenBlackList.js"
 
 export const roles = {
   admin: "Admin",
@@ -25,8 +25,9 @@ export const auth = () => {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Token missing" });
       }
 
-      // Check if token is blacklisted
-      if (isTokenBlackListed(token)) {
+      // Check if token is blacklisted (await async function)
+      const blacklisted = await isTokenBlackListed(token); // Use await here
+      if (blacklisted) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Token is blacklisted" });
       }
 

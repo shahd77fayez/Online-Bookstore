@@ -1,6 +1,6 @@
 import userModel from "../DB/models/user.model.js";
 import {generateToken} from "../middlewares/GenerateAndVerifyToken.js";
-import { addToBlackList } from "../middlewares/TokenBlackList.js";
+import { addToBlackList, isTokenBlackListed } from "../middlewares/TokenBlackList.js";
 import { ErrorClass } from "../middlewares/ErrorClass.js";
 import sendEmail, { createHtml } from "../middlewares/email.js";
 import StatusCodes from "http-status-codes";
@@ -13,31 +13,73 @@ import logger from "../middlewares/logger.js";
 export const signup = async (req, res, next) => {
   logger.info("Signup request received", { email: req.body.email });
   const isEmailExist = await userModel.findOne({ email: req.body.email });
-  if (isEmailExist) {
+
+  // Case 1: If user exists and is deleted, reactivate the account
+  if (isEmailExist && isEmailExist.isDeleted) {
+    return await reactivateUser(isEmailExist, req, res);
+  }
+
+  // Case 2: If user exists and is not deleted
+  if (isEmailExist && !isEmailExist.isDeleted) {
     logger.warn(`Signup attempt with existing email: ${req.body.email}`);
     return next(
       new ErrorClass(
-        `This email ${req.body.email} already exist`,
+        `This email ${req.body.email} already exists`,
         StatusCodes.CONFLICT
       )
     );
   }
-  req.body.phone = CryptoJS.AES.encrypt(
-    req.body.phone,
-    process.env.ENCRYPTION_KEY
-  ).toString();
-  //req.body.password = hash(req.body.password)
+
+  // If no user found, create a new one
+  return await createNewUser(req, res);
+};
+
+// Function to reactivate the user and update their details
+const reactivateUser = async (user, req, res) => {
+  user.isDeleted = false;  // Reactivate the user
+  user.isConfirmed = false; // Reset confirmation status
+
+  // Encrypt phone and update other details
+  user.phone = CryptoJS.AES.encrypt(req.body.phone, process.env.ENCRYPTION_KEY).toString();
+  user.name = req.body.name || user.name;
+  user.address = req.body.address || user.address;
+
+  if (req.body.password) {
+    user.password = req.body.password;  // Assign the new password (hashing will be handled by pre-save hook)
+  }
+
+  // Generate new code
+  const code = nanoid(6);
+  user.code = code;
+
+  await user.save(); // Save the updated user
+  logger.info(`Reactivated and updated user with email: ${req.body.email}`);
+
+  // Send confirmation email
+  const html = createHtml("confirmation", `code is: ${code}`);
+  await sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
+
+  res.status(StatusCodes.CREATED).json({ message: "User reactivated successfully", user });
+};
+
+// Function to create a new user
+const createNewUser = async (req, res) => {
+  // Encrypt the phone number
+  req.body.phone = CryptoJS.AES.encrypt(req.body.phone, process.env.ENCRYPTION_KEY).toString();
+
+  // Generate code for email confirmation
   const code = nanoid(6);
   req.body.code = code;
+
+  // Create the new user
   const user = await userModel.create(req.body);
   logger.info("User signed up successfully", { email: req.body.email, userId: user._id });
-  // Send email after successful user creation
-  const html = createHtml("confirmation", `code is: ${code}`);
 
-  sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
-  res
-    .status(StatusCodes.CREATED)
-    .json({ message: "User added successfully", user });
+  // Send confirmation email
+  const html = createHtml("confirmation", `code is: ${code}`);
+  await sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
+
+  res.status(StatusCodes.CREATED).json({ message: "User added successfully", user });
 };
 //2]==================== Confirm Email =======================
 export const confirmEmail = async (req, res, next) => {
@@ -75,14 +117,17 @@ export const signin = async (req, res, next) => {
   });
   //Email Checking
   if (!user) {
+    console.log(user);
     logger.warn(`Failed login attempt for email: ${email}`);
-    return next(new ErrorClass(`Invalid-Credentials`, StatusCodes.NOT_FOUND));
+    return next(new ErrorClass(`Invalid Credentials`, StatusCodes.UNAUTHORIZED));
   }
   //Password Checking
-  const passcheck = await user.comparePassword(password, user.password);
+  const passcheck = await user.comparePassword(password,user.password);
   if (!passcheck) {
+    console.log(passcheck);
+    
     logger.warn("Invalid credentials - wrong password", { email });
-    return next(new ErrorClass(`Invalid-Credentials`, StatusCodes.NOT_FOUND));
+    return next(new ErrorClass(`Invalid Credentials`, StatusCodes.UNAUTHORIZED));
   }
   const payload = {
     id: user._id,
@@ -118,7 +163,7 @@ export const sendCode = async (req, res, next) => {
     { new: true }
   );
   logger.info(`Password reset code sent to: ${email}`);
-  res.status(StatusCodes.ACCEPTED).json({ message: "Done" });
+  res.status(StatusCodes.ACCEPTED).json({ message: "Done",code:code });
 };
 //5]==================== Reset Password =================
 export const resetPassword = async (req, res, next) => {
@@ -209,7 +254,8 @@ export const softDelete = async (req, res, next) => {
       new ErrorClass("User is not Authenticated", StatusCodes.UNAUTHORIZED)
     );
   }
-  addToBlackList(req.headers.authorization);
+// Blacklist the token
+await addToBlackList(req.headers.authorization);
   const user = await userModel.findByIdAndUpdate(
     { _id },
     { isDeleted: true },
@@ -227,7 +273,14 @@ export const UpdateUser = async (req, res, next) => {
     );
   }
   const userExist = await userModel.findById(_id);
-  if (req.body.email != userExist.email) {
+  //Prevent password update
+  if ("password" in req.body) {
+    return next(
+      new ErrorClass("Password update is not allowed", StatusCodes.BAD_REQUEST)
+    );
+  }
+  
+  if (req.body.email && req.body.email !== userExist.email) {
     const code = nanoid(6);
     const html = createHtml(
       "confirmation",
@@ -255,7 +308,16 @@ export const logout = async (req, res, next) => {
       .status(StatusCodes.UNAUTHORIZED)
       .json({ message: "Authorization header missing" });
   }
-  addToBlackList(req.headers.authorization);
+  // Check if token is already blacklisted
+  const blacklisted = await isTokenBlackListed(authorization);
+  if (blacklisted) {
+    return res
+      .status(StatusCodes.UNAUTHORIZED)
+      .json({ message: "Token is already blacklisted" });
+  }
+
+  // Add token to blacklist
+  await addToBlackList(authorization);
   logger.info("User logged out successfully");
   res.status(StatusCodes.OK).json({ message: "Logged out successfully" });
 };
@@ -272,10 +334,11 @@ export const createDefaultAdmins = async () => {
       const existingAdmin = await userModel.findOne({ email: admin.email });
 
       if (!existingAdmin) {
-        const newAdmin = new userModel(admin);
+        const newAdmin = new userModel({email:admin.email,password:admin.password,username: admin.email.split("@")[0],role:admin.role});
         await newAdmin.save();
         console.log(`Admin ${admin.email} created successfully`);
       } else {
+        console.log(admin);
         console.log(`Admin ${admin.email} already exists`);
       }
     }

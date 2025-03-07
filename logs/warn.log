@@ -3,3 +3,36 @@
 {"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T02:15:42.869Z"}
 {"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T03:05:49.953Z"}
 {"level":"warn","message":"Signup attempt with existing email: tokaedddswssssky@gmail.com","timestamp":"2025-03-07T04:14:01.446Z"}
+{"level":"warn","message":"Failed login attempt for email: admin1@example.com","timestamp":"2025-03-07T01:47:53.823Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T01:55:03.492Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:14:26.947Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:19:16.634Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:22:31.401Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:23:37.555Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:31:56.183Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:40:53.234Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:45:55.426Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:46:33.008Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:48:05.050Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:00:52.570Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:03:57.097Z"}
+{"level":"warn","message":"Failed login attempt for email: shahdfayez@gmail.com","timestamp":"2025-03-07T03:05:08.672Z"}
+
+{"level":"warn","message":"Failed login attempt for email: tmalak145@gmail.com","timestamp":"2025-03-06T22:13:49.666Z"}
+{"level":"warn","message":"Failed login attempt for email: malakghazy16@gmail.com","timestamp":"2025-03-07T01:50:30.506Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T01:50:47.918Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:07:29.190Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:08:17.535Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:27.822Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:34.650Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:46.831Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:16:54.853Z"}
+{"level":"warn","message":"Failed login attempt for email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:47:58.544Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:01:03.640Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:02:37.707Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:06:22.337Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:06:55.588Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:09:50.796Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:11:12.429Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:41.562Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:47.110Z"}
