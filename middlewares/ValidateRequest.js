@@ -1,6 +1,4 @@
 // middlewares/ValidateRequest.js
-import { orderSchema } from "../validation/orderValidation.js";
-import Joi from "joi";
 
 export const validateRequest = (schema) => {
   return (req, res, next) => {
