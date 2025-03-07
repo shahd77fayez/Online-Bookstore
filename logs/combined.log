@@ -102,3 +102,176 @@
 {"level":"info","message":"User signed in successfully: shahdfayez@gmail.com","timestamp":"2025-03-07T03:06:40.373Z"}
 {"level":"info","message":"::1 - - [07/Mar/2025:03:06:40 +0000] \"POST /user/signin HTTP/1.1\" 202 258 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:06:40.375Z"}
 {"level":"info","message":"::1 - - [07/Mar/2025:03:07:37 +0000] \"POST /book/addbook HTTP/1.1\" 403 40 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:07:37.977Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:21:54:25 +0000] \"POST /user/signup HTTP/1.1\" 200 978 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T21:54:25.928Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:21:55:16 +0000] \"POST /user/signup HTTP/1.1\" 200 812 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T21:55:16.789Z"}
+{"email":"tmalak145@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-06T22:08:28.996Z"}
+{"email":"tmalak145@gmail.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-06T22:08:29.507Z","userId":"67ca1cddfcd8ecb9b5eeed43"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:08:29 +0000] \"POST /user/signup HTTP/1.1\" 201 523 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:08:29.528Z"}
+{"email":"tmalak145@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-06T22:09:15.199Z"}
+{"level":"info","message":"Email confirmed successfully: tmalak145@gmail.com","timestamp":"2025-03-06T22:09:15.533Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:09:15 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:09:15.536Z"}
+{"email":"tmalak145@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-06T22:09:42.867Z"}
+{"level":"info","message":"User signed in successfully: tmalak145@gmail.com","timestamp":"2025-03-06T22:09:43.105Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:09:43 +0000] \"POST /user/signin HTTP/1.1\" 202 257 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:09:43.107Z"}
+{"level":"info","message":"User updated successfully: 67ca1cddfcd8ecb9b5eeed43","timestamp":"2025-03-06T22:11:20.672Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:11:20 +0000] \"PATCH /user/update HTTP/1.1\" 200 471 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:11:20.674Z"}
+{"email":"tmalak145@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-06T22:13:49.517Z"}
+{"level":"warn","message":"Failed login attempt for email: tmalak145@gmail.com","timestamp":"2025-03-06T22:13:49.666Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:13:49 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:13:49.674Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:14:42 +0000] \"PATCH /user/soft-del HTTP/1.1\" 400 197 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:14:42.661Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-06T22:15:54.439Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-06T22:15:54.946Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:15:54 +0000] \"POST /user/signup HTTP/1.1\" 201 527 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:15:54.950Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-06T22:16:34.200Z"}
+{"level":"info","message":"Email confirmed successfully: malakghazy16@gmail.com","timestamp":"2025-03-06T22:16:34.576Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:16:34 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:16:34.578Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-06T22:17:13.981Z"}
+{"level":"info","message":"User signed in successfully: malakghazy16@gmail.com","timestamp":"2025-03-06T22:17:14.258Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:17:14 +0000] \"POST /user/signin HTTP/1.1\" 202 261 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:17:14.260Z"}
+{"level":"info","message":"User updated successfully: 67ca1e9afcd8ecb9b5eeed4e","timestamp":"2025-03-06T22:17:40.967Z"}
+{"level":"info","message":"::1 - - [06/Mar/2025:22:17:40 +0000] \"PATCH /user/update HTTP/1.1\" 200 475 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-06T22:17:40.969Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T00:31:02.220Z"}
+{"level":"info","message":"User signed in successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T00:31:02.486Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:31:02 +0000] \"POST /user/signin HTTP/1.1\" 202 261 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:31:02.494Z"}
+{"level":"info","message":"User updated successfully: 67ca1e9afcd8ecb9b5eeed4e","timestamp":"2025-03-07T00:31:28.753Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:31:28 +0000] \"PATCH /user/update HTTP/1.1\" 200 474 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:31:28.757Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Password reset request received","timestamp":"2025-03-07T00:50:15.286Z"}
+{"level":"info","message":"Password reset code sent to: malakghazy16@gmail.com","timestamp":"2025-03-07T00:50:18.011Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:50:18 +0000] \"PATCH /user/send-code HTTP/1.1\" 202 18 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:50:18.018Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Password reset request received","timestamp":"2025-03-07T00:51:11.313Z"}
+{"level":"info","message":"Password reset code sent to: malakghazy16@gmail.com","timestamp":"2025-03-07T00:51:13.726Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:51:13 +0000] \"PATCH /user/send-code HTTP/1.1\" 202 34 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:51:13.732Z"}
+{"level":"info","message":"Password reset request received","timestamp":"2025-03-07T00:51:29.733Z"}
+{"level":"info","message":"Password reset successfully for: malakghazy16@gmail.com","timestamp":"2025-03-07T00:51:30.217Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:51:30 +0000] \"PATCH /user/reset-pass HTTP/1.1\" 202 39 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:51:30.220Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:54:33 +0000] \"PATCH /user/change-pass HTTP/1.1\" 400 383 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:54:33.431Z"}
+{"level":"info","message":"Change Password request received","route":"/change-password","timestamp":"2025-03-07T00:56:37.427Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"User ID: 67ca1e9afcd8ecb9b5eeed4e - Initiating password change","timestamp":"2025-03-07T00:56:37.432Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"User ID: 67ca1e9afcd8ecb9b5eeed4e - Checking old password","timestamp":"2025-03-07T00:56:37.616Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"User ID: 67ca1e9afcd8ecb9b5eeed4e - Old password verified, checking new password","timestamp":"2025-03-07T00:56:37.711Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"User ID: 67ca1e9afcd8ecb9b5eeed4e - Updating password","timestamp":"2025-03-07T00:56:37.767Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"User ID: 67ca1e9afcd8ecb9b5eeed4e - Password updated successfully","timestamp":"2025-03-07T00:56:38.150Z","userId":"67ca1e9afcd8ecb9b5eeed4e"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:56:38 +0000] \"PATCH /user/change-pass HTTP/1.1\" 200 43 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:56:38.159Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:00:57:30 +0000] \"PATCH /user/soft-del HTTP/1.1\" 400 197 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:57:30.158Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:00:10 +0000] \"PATCH /user/soft-del HTTP/1.1\" 400 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:00:10.804Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:00:39 +0000] \"PATCH /user/soft-del HTTP/1.1\" 400 136 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:00:39.112Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:02:40 +0000] \"PATCH /user/soft-del HTTP/1.1\" 400 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:02:40.238Z"}
+{"level":"info","message":"User soft-deleted: 67ca1e9afcd8ecb9b5eeed4e","timestamp":"2025-03-07T01:06:17.780Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:06:17 +0000] \"PATCH /user/soft-del HTTP/1.1\" 200 488 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:06:17.795Z"}
+{"level":"info","message":"User logged out successfully","timestamp":"2025-03-07T01:07:22.047Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:07:22 +0000] \"POST /user/logout HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:07:22.058Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T01:50:29.845Z"}
+{"level":"warn","message":"Failed login attempt for email: malakghazy16@gmail.com","timestamp":"2025-03-07T01:50:30.506Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:50:30 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:50:30.509Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T01:50:47.285Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T01:50:47.918Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:50:47 +0000] \"POST /user/signup HTTP/1.1\" 409 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:50:47.919Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T01:53:48.589Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:53:50 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:53:50.192Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T01:59:39.115Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:59:40 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:59:40.484Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:02:42.581Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:02:47.125Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:02:48 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:02:48.116Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:04:45.163Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:04:45.640Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:04:46 +0000] \"POST /user/signup HTTP/1.1\" 500 36 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:04:46.168Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:07:23.617Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:07:29.190Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:07:29 +0000] \"POST /user/signup HTTP/1.1\" 409 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:07:29.194Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:08:15.227Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:08:17.535Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:08:17 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:08:17.538Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:11:22.426Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:27.822Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:11:27 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:11:27.833Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:11:34.149Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:34.650Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:11:34 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:11:34.651Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:11:45.298Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:11:46.831Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:11:46 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:11:46.833Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:16:46.691Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:16:54.853Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:16:54 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:16:54.856Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:18:57.339Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:18:59.062Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:18:59 +0000] \"POST /user/signup HTTP/1.1\" 201 515 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:18:59.064Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:19:55.663Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:19:59.363Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:19:59 +0000] \"POST /user/signup HTTP/1.1\" 201 514 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:19:59.365Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:21:18.454Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:21:19.964Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:21:19 +0000] \"POST /user/signup HTTP/1.1\" 201 515 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:21:19.969Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:47:58.328Z"}
+{"level":"warn","message":"Failed login attempt for email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:47:58.544Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:47:58 +0000] \"POST /user/signin HTTP/1.1\" 404 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:47:58.548Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T02:55:17.727Z"}
+{"level":"info","message":"Reactivated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T02:55:18.151Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:55:19 +0000] \"POST /user/signup HTTP/1.1\" 201 548 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:55:19.647Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:00:26.454Z"}
+{"level":"info","message":"Reactivated and updated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:00:26.870Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:00:28 +0000] \"POST /user/signup HTTP/1.1\" 201 552 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:00:28.230Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-07T03:00:57.018Z"}
+{"level":"info","message":"Email confirmed successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T03:00:57.338Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:00:57 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:00:57.340Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:01:03.380Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:01:03.640Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:01:03 +0000] \"POST /user/signin HTTP/1.1\" 404 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:01:03.642Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:02:37.464Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:02:37.707Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:02:37 +0000] \"POST /user/signin HTTP/1.1\" 404 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:02:37.709Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:06:22.023Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:06:22.337Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:06:22 +0000] \"POST /user/signin HTTP/1.1\" 401 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:06:22.346Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:06:55.253Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:06:55.588Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:06:55 +0000] \"POST /user/signin HTTP/1.1\" 401 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:06:55.597Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:09:29.492Z"}
+{"level":"info","message":"Reactivated and updated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:09:29.926Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:09:31 +0000] \"POST /user/signup HTTP/1.1\" 201 552 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:09:31.364Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-07T03:09:42.799Z"}
+{"level":"info","message":"Email confirmed successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T03:09:43.194Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:09:43 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:09:43.196Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:09:50.516Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:09:50.796Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:09:50 +0000] \"POST /user/signin HTTP/1.1\" 401 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:09:50.799Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:11:12.187Z"}
+{"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:11:12.429Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:11:12 +0000] \"POST /user/signup HTTP/1.1\" 409 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:11:12.432Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:12:16.182Z"}
+{"level":"info","message":"Reactivated and updated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:12:16.528Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:12:17 +0000] \"POST /user/signup HTTP/1.1\" 201 552 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:12:17.846Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-07T03:12:34.898Z"}
+{"level":"info","message":"Email confirmed successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T03:12:35.219Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:12:35 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:12:35.221Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:12:41.333Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:41.562Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:12:41 +0000] \"POST /user/signin HTTP/1.1\" 401 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:12:41.564Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:12:46.880Z"}
+{"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:47.110Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:12:47 +0000] \"POST /user/signin HTTP/1.1\" 401 14 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:12:47.112Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:16:13.186Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:16:13 +0000] \"POST /user/signup HTTP/1.1\" 500 2 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:16:13.383Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:16:19.439Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:16:19 +0000] \"POST /user/signup HTTP/1.1\" 500 2 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:16:19.597Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:18:22.493Z"}
+{"level":"info","message":"Reactivated and updated user with email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:18:23.023Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:18:24 +0000] \"POST /user/signup HTTP/1.1\" 201 552 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:18:24.465Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Confirm Email request received","timestamp":"2025-03-07T03:18:40.387Z"}
+{"level":"info","message":"Email confirmed successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T03:18:40.839Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:18:40 +0000] \"PATCH /user/confirm-email HTTP/1.1\" 200 145 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:18:40.841Z"}
+{"email":"malakghazy16@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:18:46.818Z"}
+{"level":"info","message":"User signed in successfully: malakghazy16@gmail.com","timestamp":"2025-03-07T03:18:47.049Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:18:47 +0000] \"POST /user/signin HTTP/1.1\" 202 261 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:18:47.053Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:19:14 +0000] \"PATCH /user/soft-del HTTP/1.1\" 401 85 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:19:14.471Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:19:52 +0000] \"POST /user/logout HTTP/1.1\" 401 85 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:19:52.274Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:29:39 +0000] \"POST /user/logout HTTP/1.1\" 401 82 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:29:39.919Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:30:47 +0000] \"POST /user/logout HTTP/1.1\" 401 85 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:30:47.748Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:33:36 +0000] \"POST /user/logout HTTP/1.1\" 401 85 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:33:36.284Z"}
+{"level":"info","message":"User logged out successfully","timestamp":"2025-03-07T03:34:44.642Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:34:44 +0000] \"POST /user/logout HTTP/1.1\" 200 37 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:34:44.654Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:35:06 +0000] \"PATCH /user/soft-del HTTP/1.1\" 401 34 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:35:06.998Z"}
+{"email":"test@example.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:36:47.038Z"}
+{"email":"test@example.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-07T03:36:47.827Z","userId":"67ca69cf97256610e283db6e"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:36:49 +0000] \"POST /user/signup HTTP/1.1\" 201 521 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:36:49.358Z"}
