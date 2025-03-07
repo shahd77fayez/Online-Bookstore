@@ -18,3 +18,9 @@ Order Functionality :
 ✅ Order History: Retrieves past orders with book details.
 ✅ Indexes: Added an index on user to optimize order lookups.
 ✅ Validation Middleware: Moved order validation logic into middlewares/orderValidation.js.
+====================================================================================================
+>> updateOrderStatus (controllers/order.controller.js)
+✅ Now, Admins Can:
+    Update order statuses via the /orders/:orderId/status endpoint.
+    Only admins are allowed to perform this action.
+    Orders default to "Pending" when crea
