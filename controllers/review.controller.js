@@ -41,12 +41,13 @@ export const createReview = async (req, res) => {
 
         await review.save();
 
-        // Populate user and book details
-        await review.populate('user', 'name email');
-        await review.populate('book', 'title author');
+        // Populate user and book details using the correct pattern
+        const populatedReview = await Review.findById(review._id)
+            .populate('user', 'name email')
+            .populate('book', 'title author');
 
     logger.info(`Review created successfully by user ${req.user._id} for book ${req.body.book}`);
-    res.status(201).json(review);
+    res.status(201).json(populatedReview);
 };
 
 // Get all reviews for a book
@@ -102,12 +103,13 @@ export const updateReview = async (req, res) => {
     review.set(req.body);
     await review.save();
 
-    // Populate user and book details
-    await review.populate('user', 'name email');
-    await review.populate('book', 'title author');
+    // Populate user and book details using the correct pattern
+    const populatedReview = await Review.findById(review._id)
+        .populate('user', 'name email')
+        .populate('book', 'title author');
 
     logger.info(`Review ${reviewId} updated successfully by user ${req.user._id}`);
-    res.json(review);
+    res.json(populatedReview);
 };
 
 // Delete a review
