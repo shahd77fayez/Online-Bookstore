@@ -1,9 +1,14 @@
+import process from 'node:process';
+import dotenv from 'dotenv';
+import redisClient from '../config/config-redis.js';
 import Book from '../DB/models/book.model.js';
 import {Review} from '../DB/models/review.model.js';
 import userModel from '../DB/models/user.model.js';
 import logger from '../middlewares/logger.js';
 import {reviewValidation} from '../validation/review.validation.js';
 import {notificationController} from './notification.controller.js';
+
+dotenv.config({path: './config/.env'});
 
 // Create a new review
 export const createReview = async (req, res) => {
@@ -49,6 +54,16 @@ export const createReview = async (req, res) => {
     {$push: {reviews: review._id}},
     {new: true}
   );
+
+  // Update cache if exists
+  const cachedReviews = await redisClient.get(process.env.CACHE_KEY);
+  if (cachedReviews) {
+    const reviews = JSON.parse(cachedReviews);
+    reviews.push(review._id);
+    await redisClient.setEx(process.env.CACHE_KEY, 3600, JSON.stringify(reviews));
+  } else {
+    await redisClient.setEx(process.env.CACHE_KEY, 3600, JSON.stringify([review._id]));
+  }
 
   // Query for the populated review using the correct pattern
   const populatedReview = await Review.findById(review._id)
