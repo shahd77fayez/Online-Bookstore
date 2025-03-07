@@ -23,4 +23,16 @@ Order Functionality :
 ✅ Now, Admins Can:
     Update order statuses via the /orders/:orderId/status endpoint.
     Only admins are allowed to perform this action.
-    Orders default to "Pending" when crea
+    Orders default to "Pending" when created
+====================================================================================================
+>> createPaymentIntent 
+✅ Now, Admins Can:
+    Create a payment intent via the /payment
+    Only admins are allowed to perform this action (if an `isAdmin` middleware is applied).
+    Payment intents are created with a specified amount and a default currency of "USD".
+    The client secret of the payment intent is returned to the client for further processing.
+====================================================================================================
+  
+   
+    
+     

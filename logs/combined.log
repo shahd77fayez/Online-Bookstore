@@ -275,3 +275,6 @@
 {"email":"test@example.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:36:47.038Z"}
 {"email":"test@example.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-07T03:36:47.827Z","userId":"67ca69cf97256610e283db6e"}
 {"level":"info","message":"::1 - - [07/Mar/2025:03:36:49 +0000] \"POST /user/signup HTTP/1.1\" 201 521 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:36:49.358Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:06:14:56 +0000] \"POST /payment HTTP/1.1\" 200 80 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T06:14:56.045Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:06:27:31 +0000] \"POST /payment HTTP/1.1\" 500 43 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T06:27:31.760Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:06:28:25 +0000] \"POST /payment HTTP/1.1\" 500 58 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T06:28:25.152Z"}

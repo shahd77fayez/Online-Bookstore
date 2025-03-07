@@ -7,7 +7,7 @@ import orderRouter from "./routes/order.routes.js";
 import cartRouter from "./routes/cart.routes.js";
 import reviewRouter from "./routes/review.routes.js";
 import notificationRouter from "./routes/notification.routes.js";
-
+import paymentRoutes from './routes/payment.routes.js';
 let io;
 
 export const initApp = (app, express) => {
@@ -21,6 +21,7 @@ export const initApp = (app, express) => {
     app.use(`/book`, bookRouter);
     app.use(`/review`, reviewRouter);
     app.use(`/notifications`, notificationRouter);
+    app.use('/payment', paymentRoutes);
 
     // Handle Invalid Routes
     app.use('*', (req, res, next) => {
