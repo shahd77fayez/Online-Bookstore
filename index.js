@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
-dotenv.config({ path: "./config/.env" });
-console.log("DB_URL:", process.env.DB_URL);
+dotenv.config({path:"./config/.env"});
+
 import { createServer } from 'http';
 import express from "express"
 import morgan from "morgan";

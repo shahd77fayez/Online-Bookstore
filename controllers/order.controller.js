@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import Order from "../DB/models/order.model.js"
-import { validateBooks } from "../middlewares/BookStockValidation.js";
+import { validateBooks } from "../validation/BookStockValidation.js";
 import StatusCodes from "http-status-codes";
 import { getIO } from '../index.router.js';
 import { ErrorClass } from "../middlewares/ErrorClass.js";

@@ -10,36 +10,44 @@ const BooksSchema = new mongoose.Schema({
     type: String,
     required: true,
     lowercase: true,
-    unique: true,
-    minLength: 8,
+    trim: true, 
+    minlength: 3, 
+    maxlength: 255 
   },
   author: {
-    type: Number,
-    ref: 'authors',
+    type: String,
     required: true,
+    trim: true,
+    minlength: 3, 
+    maxlength: 100
   },
   price: {
     type: Number,
     required: true,
-  },
-  
+    min: 0
+  },  
   description: {
     type: String,
-    minLength: 8,
+    minLength: 25,
+    trim: true, 
+    maxlength: 500
   },
   stock: {
     type: Number,
     required: true,
+    min: 0, 
+    validate: Number.isInteger
   },
-  reviews: {
-    type: Number,
-    ref: 'reviews',
-    required: true,
-  },
+  reviews: [
+    { 
+      type: mongoose.Schema.Types.ObjectId, 
+      ref: "Review" 
+    }
+  ],
   Image: {
     type: String,
   }
-});
+},{timestamps: true});
 
 
 BooksSchema.set('toJSON', {
