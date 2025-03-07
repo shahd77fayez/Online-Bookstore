@@ -40,9 +40,17 @@ export const createReview = async (req, res) => {
     review: req.body.review
   });
 
+  // Save the review first
   await review.save();
 
-  // Populate user and book details using the correct pattern
+  // Update book's reviews array
+  await Book.findByIdAndUpdate(
+    req.body.book,
+    {$push: {reviews: review._id}},
+    {new: true}
+  );
+
+  // Query for the populated review using the correct pattern
   const populatedReview = await Review.findById(review._id)
     .populate('user', 'name email')
     .populate('book', 'title author');
