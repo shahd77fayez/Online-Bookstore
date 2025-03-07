@@ -36,3 +36,9 @@
 {"level":"warn","message":"Signup attempt with existing email: malakghazy16@gmail.com","timestamp":"2025-03-07T03:11:12.429Z"}
 {"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:41.562Z"}
 {"email":"malakghazy16@gmail.com","level":"warn","message":"Invalid credentials - wrong password","timestamp":"2025-03-07T03:12:47.110Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:18:41.150Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:25:53.808Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:40:03.452Z"}
+{"level":"warn","message":"Invalid confirmation code for email: malak.ghazyy16@gmail.com","timestamp":"2025-03-07T13:41:32.498Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T14:11:05.673Z"}
+{"email":"malak.ghazyy16@gmail.com","level":"error","message":"Email not found","timestamp":"2025-03-07T14:12:41.395Z"}

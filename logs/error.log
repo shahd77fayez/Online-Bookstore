@@ -2,3 +2,8 @@
 {"level":"error","message":"Error creating book: Books validation failed: title: Path `title` (`a`) is shorter than the minimum allowed length (3)., author: Path `author` is required., price: Path `price` (-5) is less than minimum allowed value (0)., stock: Validator failed for path `stock` with value `3.5`","timestamp":"2025-03-06T23:45:17.556Z"}
 {"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T02:15:42.869Z"}
 {"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T03:05:49.953Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:18:41.150Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:25:53.808Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:40:03.452Z"}
+{"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T14:11:05.673Z"}
+{"email":"malak.ghazyy16@gmail.com","level":"error","message":"Email not found","timestamp":"2025-03-07T14:12:41.395Z"}

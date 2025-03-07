@@ -2,7 +2,7 @@ import userModel from "../DB/models/user.model.js";
 import {generateToken} from "../middlewares/GenerateAndVerifyToken.js";
 import { addToBlackList, isTokenBlackListed } from "../middlewares/TokenBlackList.js";
 import { ErrorClass } from "../middlewares/ErrorClass.js";
-import sendEmail, { createHtml } from "../middlewares/email.js";
+import {sendEmail} from "../middlewares/email.js";
 import StatusCodes from "http-status-codes";
 import { nanoid } from "nanoid";
 import CryptoJS from "crypto-js";
@@ -57,9 +57,18 @@ const reactivateUser = async (user, req, res) => {
   logger.info(`Reactivated and updated user with email: ${req.body.email}`);
 
   // Send confirmation email
-  const html = createHtml("confirmation", `code is: ${code}`);
-  await sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
-
+  try {
+    await sendEmail({
+      to: user.email,
+      subject: "Email Confirmation Code",
+      title: "Verify Your Email",
+      username: user.username,
+      message: `Your email confirmation code is: <b>${code}</b>. Please enter this code to verify your account.`,
+    });
+  } catch (error) {
+    logger.error("Error sending email", { error });
+    return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
+  }  
   res.status(StatusCodes.CREATED).json({ message: "User reactivated successfully", user });
 };
 
@@ -77,33 +86,18 @@ const createNewUser = async (req, res) => {
   logger.info("User signed up successfully", { email: req.body.email, userId: user._id });
 
   // Send confirmation email
-  const html = createHtml("confirmation", `code is: ${code}`);
-  await sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
-  
-  // Create welcome notification for the new user
-  await notificationController.createNotification(
-    user._id,
-    'system',
-    'Welcome to Online Bookstore',
-    'Thank you for creating an account. Please confirm your email to start exploring our collection.',
-    null,
-    null
-  );
-  
-  // Notify admins about new user registration
-  const adminUsers = await userModel.find({ role: 'Admin' });
-  if (adminUsers && adminUsers.length > 0) {
-    const adminIds = adminUsers.map(admin => admin._id);
-    await notificationController.createMultiRecipientNotification(
-      adminIds,
-      'system',
-      'New User Registration',
-      `A new user ${user.name} (${user.email}) has registered.`,
-      user._id,
-      'User'
-    );
-  }
-
+  try {
+    await sendEmail({
+      to: user.email,
+      subject: "Email Confirmation Code",
+      title: "Verify Your Email",
+      username: user.username,
+      message: `Your email confirmation code is: <b>${code}</b>. Please enter this code to verify your account.`,
+    });
+  } catch (error) {
+    logger.error("Error sending email", { error });
+    return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
+  }  
   res.status(StatusCodes.CREATED).json({ message: "User added successfully", user });
 };
 //2]==================== Confirm Email =======================
@@ -141,6 +135,20 @@ export const confirmEmail = async (req, res, next) => {
     );
   }
   
+  try{
+    await sendEmail({
+      to: email,
+      subject: "Welcome to Online Bookstore!",
+      title: "Account Registration Successful",
+      username:isEmailExist.username,
+      message: "Your account has been successfully created. Happy shopping!",
+    });
+  }
+  catch(error)
+  {
+    logger.error("Error sending email", { error });
+    return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
+  }
   res
     .status(StatusCodes.OK)
     .json({ message: "Successfully Confirmed", confirmedUser });
@@ -191,12 +199,20 @@ export const sendCode = async (req, res, next) => {
   // creating new code to send via email to the user
   const code = nanoid(6);
   const expiration = new Date(Date.now() + 15 * 60 * 1000); // Expires in 15 minutes
-  const html = createHtml(
-    "reset",
-    `Your reset code is: <b>${code}</b>. It expires in 15 minutes.`
-  );
-
-  await sendEmail({ to: req.body.email, subject: "ForgottenPassword" }, html);
+  try{
+    await sendEmail({
+      to: req.body.email,
+      subject: "ForgottenP assword",
+      title: "Reset Your Account Password",
+      username:isEmailExist.username,
+      message: `Your reset code is: <b>${code}</b>. It expires in 15 minutes.`,
+    });
+  }
+  catch(error)
+  {
+    logger.error("Error sending email", { error });
+    return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
+  }
   await userModel.updateOne(
     { email },
     { code, codeExpires: expiration },
@@ -333,16 +349,21 @@ export const UpdateUser = async (req, res, next) => {
   
   if (req.body.email && req.body.email !== userExist.email) {
     const code = nanoid(6);
-    const html = createHtml(
-      "confirmation",
-      `Your new confirmation code is: <b>${code}</b>`
-    );
-    await sendEmail({
-      to: userExist.email,
-      subject: "New Confirmation Email",
-      html,
-    });
-    req.body.code = code;
+    try{
+      await sendEmail({
+        to: req.body.email,
+        subject: "New Email Confirmation Code",
+        title: "Confirm Your New Email",
+        username:userExist.username,
+        message: `Your new email confirmation code is: <b>${code}</b>. Please enter this code to verify your new email address.`,
+      });
+    }
+    catch(error)
+    {
+      logger.error("Error sending email", { error });
+      return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
+    }
+      req.body.code = code;
     req.body.isConfirmed = false;
   }
   const user = await userModel.findByIdAndUpdate({ _id }, req.body, {
@@ -387,13 +408,15 @@ export const createDefaultAdmins = async () => {
       if (!existingAdmin) {
         const newAdmin = new userModel({email:admin.email,password:admin.password,username: admin.email.split("@")[0],role:admin.role});
         await newAdmin.save();
-        console.log(`Admin ${admin.email} created successfully`);
+        logger.info(`Default admin created: ${admin.email}`);
+        //console.log(`Admin ${admin.email} created successfully`);
       } else {
-        console.log(admin);
-        console.log(`Admin ${admin.email} already exists`);
+        //console.log(admin);
+        logger.info(`Admin ${admin.email} already exists`);
+        //console.log(`Admin ${admin.email} already exists`);
       }
     }
   } catch (error) {
-    console.error("Error creating default admins:", error);
+    logger.error("Error creating default admins", { error }); 
   }
 };
