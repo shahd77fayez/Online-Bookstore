@@ -46,3 +46,59 @@
 {"level":"info","message":"::1 - - [07/Mar/2025:00:56:28 +0000] \"POST /book/addbook HTTP/1.1\" 201 312 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:56:28.775Z"}
 {"level":"info","message":"Fetching all books","timestamp":"2025-03-07T01:28:51.639Z"}
 {"level":"info","message":"::1 - - [07/Mar/2025:01:28:51 +0000] \"GET /book/allbooks HTTP/1.1\" 200 921 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:28:51.658Z"}
+{"email":"admin1@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T01:47:53.599Z"}
+{"level":"warn","message":"Failed login attempt for email: admin1@example.com","timestamp":"2025-03-07T01:47:53.823Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:47:53 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:47:53.838Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T01:55:03.140Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T01:55:03.492Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:55:03 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:55:03.495Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:14:26.801Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:14:26.947Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:14:26 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:14:26.963Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:19:16.443Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:19:16.634Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:19:16 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:19:16.645Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:22:31.257Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:22:31.401Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:22:31 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:22:31.412Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:23:37.356Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:23:37.555Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:23:37 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:23:37.563Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:31:56.007Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:31:56.183Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:31:56 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:31:56.196Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:40:53.111Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:40:53.234Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:40:53 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:40:53.238Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:45:55.272Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:45:55.426Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:45:55 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:45:55.440Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:46:32.815Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:46:33.008Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:46:33 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:46:33.010Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:48:04.875Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:48:05.050Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:48:05 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:48:05.064Z"}
+{"email":"admin2@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T02:49:47.824Z"}
+{"level":"info","message":"User signed in successfully: admin2@example.com","timestamp":"2025-03-07T02:49:48.025Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:49:48 +0000] \"POST /user/signin HTTP/1.1\" 202 255 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:49:48.030Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:55:00 +0000] \"POST /book/addbook HTTP/1.1\" 400 43 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:55:00.632Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:56:24 +0000] \"POST /book/addbook HTTP/1.1\" 400 43 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:56:24.691Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-07T02:57:10.993Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:02:57:10 +0000] \"POST /book/addbook HTTP/1.1\" 201 329 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T02:57:10.998Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:00:52.369Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:00:52.570Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:00:52 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:00:52.580Z"}
+{"email":"gmalak541@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:03:56.885Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:03:57.097Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:03:57 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:03:57.108Z"}
+{"email":"shahdfayez@gmail.com","level":"info","message":"Signup request received","timestamp":"2025-03-07T03:04:40.653Z"}
+{"email":"shahdfayez@gmail.com","level":"info","message":"User signed up successfully","timestamp":"2025-03-07T03:04:41.025Z","userId":"67ca62481cb4cbfa826c0826"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:04:41 +0000] \"POST /user/signup HTTP/1.1\" 201 524 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:04:41.041Z"}
+{"email":"shahdfayez@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:05:08.492Z"}
+{"level":"warn","message":"Failed login attempt for email: shahdfayez@gmail.com","timestamp":"2025-03-07T03:05:08.672Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:05:08 +0000] \"POST /user/signin HTTP/1.1\" 404 49 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:05:08.675Z"}
+{"email":"shahdfayez@gmail.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T03:06:40.192Z"}
+{"level":"info","message":"User signed in successfully: shahdfayez@gmail.com","timestamp":"2025-03-07T03:06:40.373Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:06:40 +0000] \"POST /user/signin HTTP/1.1\" 202 258 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:06:40.375Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:03:07:37 +0000] \"POST /book/addbook HTTP/1.1\" 403 40 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T03:07:37.977Z"}

@@ -75,6 +75,7 @@ export const signin = async (req, res, next) => {
   });
   //Email Checking
   if (!user) {
+    console.log(user);
     logger.warn(`Failed login attempt for email: ${email}`);
     return next(new ErrorClass(`Invalid-Credentials`, StatusCodes.NOT_FOUND));
   }
@@ -272,10 +273,11 @@ export const createDefaultAdmins = async () => {
       const existingAdmin = await userModel.findOne({ email: admin.email });
 
       if (!existingAdmin) {
-        const newAdmin = new userModel(admin);
+        const newAdmin = new userModel({email:admin.email,password:admin.password,username: admin.email.split("@")[0],role:admin.role});
         await newAdmin.save();
         console.log(`Admin ${admin.email} created successfully`);
       } else {
+        console.log(admin);
         console.log(`Admin ${admin.email} already exists`);
       }
     }

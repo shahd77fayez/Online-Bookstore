@@ -1,2 +1,16 @@
 {"level":"error","message":"Error creating book: Books validation failed: reviews.0: Cast to [ObjectId] failed for value \"[ '1' ]\" (type string) at path \"reviews.0\" because of \"CastError\"","timestamp":"2025-03-06T23:43:12.430Z"}
 {"level":"error","message":"Error creating book: Books validation failed: title: Path `title` (`a`) is shorter than the minimum allowed length (3)., author: Path `author` is required., price: Path `price` (-5) is less than minimum allowed value (0)., stock: Validator failed for path `stock` with value `3.5`","timestamp":"2025-03-06T23:45:17.556Z"}
+{"level":"warn","message":"Failed login attempt for email: admin1@example.com","timestamp":"2025-03-07T01:47:53.823Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T01:55:03.492Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:14:26.947Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:19:16.634Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:22:31.401Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:23:37.555Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:31:56.183Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:40:53.234Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:45:55.426Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:46:33.008Z"}
+{"level":"warn","message":"Failed login attempt for email: admin2@example.com","timestamp":"2025-03-07T02:48:05.050Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:00:52.570Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T03:03:57.097Z"}
+{"level":"warn","message":"Failed login attempt for email: shahdfayez@gmail.com","timestamp":"2025-03-07T03:05:08.672Z"}
