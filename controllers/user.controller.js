@@ -8,6 +8,7 @@ import { nanoid } from "nanoid";
 import CryptoJS from "crypto-js";
 import bcrypt from "bcryptjs";
 import logger from "../middlewares/logger.js";
+import { notificationController } from "./notification.controller.js";
 //1]==================== Sign Up =====================
 //=============( hash password , encrypt phone )=================
 export const signup = async (req, res, next) => {
@@ -78,6 +79,30 @@ const createNewUser = async (req, res) => {
   // Send confirmation email
   const html = createHtml("confirmation", `code is: ${code}`);
   await sendEmail({ to: req.body.email, subject: "Email Confirmation", html });
+  
+  // Create welcome notification for the new user
+  await notificationController.createNotification(
+    user._id,
+    'system',
+    'Welcome to Online Bookstore',
+    'Thank you for creating an account. Please confirm your email to start exploring our collection.',
+    null,
+    null
+  );
+  
+  // Notify admins about new user registration
+  const adminUsers = await userModel.find({ role: 'Admin' });
+  if (adminUsers && adminUsers.length > 0) {
+    const adminIds = adminUsers.map(admin => admin._id);
+    await notificationController.createMultiRecipientNotification(
+      adminIds,
+      'system',
+      'New User Registration',
+      `A new user ${user.name} (${user.email}) has registered.`,
+      user._id,
+      'User'
+    );
+  }
 
   res.status(StatusCodes.CREATED).json({ message: "User added successfully", user });
 };
@@ -101,6 +126,21 @@ export const confirmEmail = async (req, res, next) => {
     { isConfirmed: true, code: newCode }
   );
   logger.info(`Email confirmed successfully: ${email}`);
+  
+  // Get the user to create a notification
+  const user = await userModel.findOne({ email });
+  if (user) {
+    // Create notification for the user about successful confirmation
+    await notificationController.createNotification(
+      user._id,
+      'system',
+      'Email Confirmed Successfully',
+      'Your email has been confirmed. You now have full access to all features of the Online Bookstore.',
+      null,
+      null
+    );
+  }
+  
   res
     .status(StatusCodes.OK)
     .json({ message: "Successfully Confirmed", confirmedUser });
@@ -195,6 +235,17 @@ export const resetPassword = async (req, res, next) => {
 
   await user.save(); // This will trigger the hashing middleware
   logger.info(`Password reset successfully for: ${email}`); 
+  
+  // Create notification for the user about password reset
+  await notificationController.createNotification(
+    user._id,
+    'system',
+    'Password Reset Successful',
+    'Your password has been reset successfully. If you did not request this change, please contact support immediately.',
+    null,
+    null
+  );
+  
   res
     .status(StatusCodes.ACCEPTED)
     .json({ message: "Password reset successful" });

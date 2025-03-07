@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
 
 const notificationSchema = new mongoose.Schema({
-    recipient: {
+    recipients: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-    },
+        ref: 'User'
+    }],
     type: {
         type: String,
         enum: ['order_status', 'review', 'system'],
@@ -37,8 +36,8 @@ const notificationSchema = new mongoose.Schema({
     }
 });
 
-// Index for faster queries on recipient and isRead status
-notificationSchema.index({ recipient: 1, isRead: 1 });
+// Index for faster queries on recipients and isRead status
+notificationSchema.index({ recipients: 1, isRead: 1 });
 // Index for sorting by creation date
 notificationSchema.index({ createdAt: -1 });
 

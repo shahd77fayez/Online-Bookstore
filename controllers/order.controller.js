@@ -5,6 +5,8 @@ import StatusCodes from "http-status-codes";
 import { getIO } from '../index.router.js';
 import { ErrorClass } from "../middlewares/ErrorClass.js";
 import logger from "../middlewares/logger.js";
+import userModel from "../DB/models/user.model.js";
+import { notificationController } from "./notification.controller.js";
 
 export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
@@ -39,6 +41,31 @@ export const placeOrder = async (req, res, next) => {
             totalPrice: order.totalPrice,
             books: populatedOrder.books
         });
+        
+        // Create notification for the user who placed the order
+        await notificationController.createNotification(
+            req.user.id,
+            'order_status',
+            'Order Placed Successfully',
+            `Your order #${order._id} has been placed successfully. Total: $${order.totalPrice.toFixed(2)}`,
+            order._id,
+            'Order'
+        );
+        
+        // Create a single notification for all admin users about the new order
+        const adminUsers = await userModel.find({ role: 'Admin' });
+        if (adminUsers && adminUsers.length > 0) {
+            const adminIds = adminUsers.map(admin => admin._id);
+            await notificationController.createMultiRecipientNotification(
+                adminIds,
+                'order_status',
+                'New Order Received',
+                `A new order #${order._id} has been placed by ${populatedOrder.user.name || 'a user'}. Total: $${order.totalPrice.toFixed(2)}`,
+                order._id,
+                'Order'
+            );
+            logger.info(`Notification sent to ${adminUsers.length} admin users about new order`);
+        }
 
         return res
             .status(StatusCodes.CREATED)
@@ -84,14 +111,41 @@ export const updateOrderStatus = async (req, res, next) => {
         }
 
         // Find the order by ID
-        const order = await Order.findById(orderId);
+        const order = await Order.findById(orderId).populate('user', 'name email _id');
         if (!order) {
             return res.status(404).json({ message: 'Order not found.' });
         }
-
+        
+        // Store old status for comparison
+        const oldStatus = order.status;
+        
         // Update the order's status
         order.status = status;
         await order.save();  // Save the updated order
+        
+        // Only send notification if status actually changed
+        if (oldStatus !== status) {
+            // Create notification for the order owner
+            let statusMessage = '';
+            if (status === 'completed') {
+                statusMessage = 'has been completed and is ready for delivery';
+            } else if (status === 'canceled') {
+                statusMessage = 'has been canceled';
+            } else {
+                statusMessage = `status has been updated to ${status}`;
+            }
+            
+            await notificationController.createNotification(
+                order.user._id,
+                'order_status',
+                `Order ${status.charAt(0).toUpperCase() + status.slice(1)}`,
+                `Your order #${order._id} ${statusMessage}.`,
+                order._id,
+                'Order'
+            );
+            
+            logger.info(`Order status notification sent to user ${order.user._id}`);
+        }
 
         return res.status(200).json({
             message: 'Order status updated successfully',

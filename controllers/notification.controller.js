@@ -26,7 +26,7 @@ export const notificationController = {
             logger.info(`Fetching notifications for user ${req.user._id}`);
 
             // Use the filter query built by middleware
-            const filterQuery = req.filterQuery || { recipient: req.user._id };
+            const filterQuery = req.filterQuery || { recipients: req.user._id };
 
             const [notifications, total] = await Promise.all([
                 Notification.find(filterQuery)
@@ -61,7 +61,7 @@ export const notificationController = {
     async getUnreadCount(req, res) {
         try {
             const count = await Notification.countDocuments({
-                recipient: req.user._id,
+                recipients: req.user._id,
                 isRead: false
             });
             logger.info(`Unread notifications count for user ${req.user._id}: ${count}`);
@@ -76,7 +76,7 @@ export const notificationController = {
         try {
             logger.info(`User ${req.user._id} marking notification ${req.params.id} as read`);
             const notification = await Notification.findOneAndUpdate(
-                { _id: req.params.id, recipient: req.user._id },
+                { _id: req.params.id, recipients: req.user._id },
                 { isRead: true },
                 { new: true }
             );
@@ -96,7 +96,7 @@ export const notificationController = {
         try {
             logger.info(`User ${req.user._id} marking all notifications as read`);
             await Notification.updateMany(
-                { recipient: req.user._id, isRead: false },
+                { recipients: req.user._id, isRead: false },
                 { isRead: true }
             );
             res.json({ message: 'All notifications marked as read' });
@@ -105,7 +105,7 @@ export const notificationController = {
         }
     },
 
-    // Create a notification (internal use)
+    // Create a notification for a single recipient (internal use)
     async createNotification(recipientId, type, title, message, relatedItem = null, itemModel = null) {
         try {
             // Validate input
@@ -120,7 +120,7 @@ export const notificationController = {
 
             // Create and save notification
             const notification = new Notification({
-                recipient: recipientId,
+                recipients: [recipientId],
                 type,
                 title,
                 message,
@@ -131,7 +131,47 @@ export const notificationController = {
             await notification.save();
             logger.info(`Notification created for user ${recipientId} - Type: ${type}, Title: ${title}`);
             // Return populated notification
-            return await notification.populate('relatedItem', 'title name status');
+            const populatedNotification = await Notification.findById(notification._id)
+                .populate('relatedItem', 'title name status');
+                
+            return populatedNotification;
+        } catch (error) {
+            console.error('Error creating notification:', error);
+            throw error;
+        }
+    },
+    
+    // Create a notification for multiple recipients (internal use)
+    async createMultiRecipientNotification(recipientIds, type, title, message, relatedItem = null, itemModel = null) {
+        try {
+            // Validate input
+            const validationErrors = validateNotificationInput(type, title, message);
+            if (validationErrors.length > 0) {
+                throw new Error('Validation failed: ' + validationErrors.join(', '));
+            }
+
+            // Trim input
+            title = title.trim();
+            message = message.trim();
+
+            // Create and save notification
+            const notification = new Notification({
+                recipients: recipientIds,
+                type,
+                title,
+                message,
+                relatedItem,
+                itemModel
+            });
+
+            await notification.save();
+            logger.info(`Notification created for ${recipientIds.length} recipients - Type: ${type}, Title: ${title}`);
+            
+            // Return populated notification following the correct pattern
+            const populatedNotification = await Notification.findById(notification._id)
+                .populate('relatedItem', 'title name status');
+                
+            return populatedNotification;
         } catch (error) {
             console.error('Error creating notification:', error);
             throw error;

@@ -2,6 +2,8 @@ import Book from '../DB/models/book.model.js';
 import logger from '../middlewares/logger.js';
 import { ErrorClass } from '../middlewares/ErrorClass.js';
 import { bookSchemaValidation } from "../validation/bookValidation.js";
+import userModel from "../DB/models/user.model.js";
+import { notificationController } from "./notification.controller.js";
 
 export const create = async (req, res, next) => {
   try {
@@ -23,6 +25,21 @@ export const create = async (req, res, next) => {
 
     // repopulation on next GET request to be consistent with the new data
     await redisClient.del(process.env.CACHE_KEY);
+    
+    // Create a notification for all users about the new book
+    const users = await userModel.find({ isDeleted: false, isConfirmed: true });
+    if (users && users.length > 0) {
+      const userIds = users.map(user => user._id);
+      await notificationController.createMultiRecipientNotification(
+        userIds,
+        'system',
+        'New Book Added',
+        `A new book "${newBook.title}" by ${newBook.author} has been added to our collection.`,
+        newBook._id,
+        'Book'
+      );
+      logger.info(`Notification sent to ${users.length} users about new book`);
+    }
 
     res.status(201).json({ message: 'Book created successfully', data: newBook });
   } catch (error) {
@@ -75,9 +92,12 @@ export const getById = async (req, res, next) => {
 
 export const updateById = async (req, res, next) => {
   try {
+    // Store the old book data for comparison
+    const oldBook = await Book.findOne({ bookId: req.params.id });
+    if (!oldBook) return next(new ErrorClass('Book not found', 404));
+    
     const updatedBook = await Book.findOneAndUpdate({ bookId: req.params.id }, req.body, { new: true });
     if (!updatedBook) return next(new ErrorClass('Book not found', 404));
-
 
     // Update cache if exists
     const cachedBooks = await redisClient.get(process.env.CACHE_KEY);
@@ -90,6 +110,36 @@ export const updateById = async (req, res, next) => {
     } else {
       // repopulation on next GET request to be consistent with the new data
       await redisClient.del(process.env.CACHE_KEY);
+    }
+    
+    // Check for significant changes that would warrant a notification
+    const significantChanges = [];
+    if (oldBook.title !== updatedBook.title) {
+      significantChanges.push(`Title changed from "${oldBook.title}" to "${updatedBook.title}"`);
+    }
+    if (oldBook.price !== updatedBook.price) {
+      significantChanges.push(`Price changed from $${oldBook.price} to $${updatedBook.price}`);
+    }
+    if (oldBook.stock !== updatedBook.stock && updatedBook.stock > 0 && oldBook.stock === 0) {
+      significantChanges.push(`Book is now back in stock`);
+    }
+    
+    // If there are significant changes, notify users who have this book in their wishlist or cart
+    if (significantChanges.length > 0) {
+      // Find admin users to notify about the update
+      const adminUsers = await userModel.find({ role: 'Admin' });
+      if (adminUsers && adminUsers.length > 0) {
+        const adminIds = adminUsers.map(admin => admin._id);
+        await notificationController.createMultiRecipientNotification(
+          adminIds,
+          'system',
+          'Book Updated',
+          `The book "${updatedBook.title}" has been updated: ${significantChanges.join(', ')}.`,
+          updatedBook._id,
+          'Book'
+        );
+        logger.info(`Notification sent to ${adminUsers.length} admin users about book update`);
+      }
     }
 
 

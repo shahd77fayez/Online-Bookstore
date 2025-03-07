@@ -3,6 +3,8 @@ import { reviewValidation } from '../validation/review.validation.js';
 import  Book  from '../DB/models/book.model.js';
 import logger from "../middlewares/logger.js"
 import  Books  from '../DB/models/book.model.js';
+import { notificationController } from './notification.controller.js';
+import userModel from '../DB/models/user.model.js';
 
 // Create a new review
 export const createReview = async (req, res) => {
@@ -47,6 +49,33 @@ export const createReview = async (req, res) => {
             .populate('book', 'title author');
 
     logger.info(`Review created successfully by user ${req.user._id} for book ${req.body.book}`);
+
+    // Create a single notification for all admin users
+    // Find all admin users
+    const adminUsers = await userModel.find({ role: 'Admin' });
+
+    if (adminUsers && adminUsers.length > 0) {
+        // Get book details for the notification message
+        const bookTitle = book.title || 'a book';
+        
+        // Extract admin IDs
+        const adminIds = adminUsers.map(admin => admin._id);
+        
+        // Create a single notification for all admins
+        await notificationController.createMultiRecipientNotification(
+            adminIds,
+            'review',
+            'New Book Review Posted',
+            `User ${req.user.username || 'A user'} left a ${req.body.rating}-star review on "${bookTitle}"`,
+            review._id,
+            'Review'
+        );
+        
+        logger.info(`Notification sent to ${adminUsers.length} admin users about new review`);
+    } else {
+        logger.info(`No admin users found`);
+    }
+
     res.status(201).json(populatedReview);
 };
 
