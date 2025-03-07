@@ -1,11 +1,5 @@
 import { StatusCodes } from "http-status-codes";
 
-export const roles = {
-  admin: "Admin",
-  user: "User",
-};
-
-Object.freeze(roles);
 
 export const authorize = (requiredRole) => {
   return (req, res, next) => {

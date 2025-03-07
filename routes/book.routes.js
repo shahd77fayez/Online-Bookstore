@@ -7,8 +7,8 @@ import {
   deleteById
 } from '../controllers/book.controller.js';
 import { asyncHandler } from '../middlewares/ErrorHandling.js';
-import { auth } from '../middlewares/auth.js';
-import { authorize,roles } from '../middlewares/authorize.js';
+import { auth,roles} from '../middlewares/auth.js';
+import { authorize } from '../middlewares/authorize.js';
 import {upload} from '../middlewares/multer.middleware.js';
 
 const bookRouter = express.Router();
