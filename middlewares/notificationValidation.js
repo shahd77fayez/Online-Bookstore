@@ -1,5 +1,8 @@
 // Middleware to validate and process query parameters for notifications
 export const validateQueryParams = (req, res, next) => {
+    console.log('Notification validation middleware called');
+    console.log('User ID:', req.user?._id || 'No user ID found');
+    console.log('Query params:', req.query);
     // Validate pagination
     const page = parseInt(req.query.page);
     const limit = parseInt(req.query.limit);
@@ -23,7 +26,7 @@ export const validateQueryParams = (req, res, next) => {
     }
 
     // Build filter object
-    req.filterQuery = { recipient: req.user._id };
+    req.filterQuery = { recipients: req.user._id };
     
     if (req.query.type) {
         req.filterQuery.type = req.query.type;
@@ -33,5 +36,6 @@ export const validateQueryParams = (req, res, next) => {
         req.filterQuery.isRead = req.query.isRead === 'true';
     }
 
+    console.log('Filter query built:', req.filterQuery);
     next();
 };
