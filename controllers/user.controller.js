@@ -98,6 +98,30 @@ const createNewUser = async (req, res) => {
     logger.error("Error sending email", { error });
     return next(new ErrorClass("Failed to send email. Please try again.", StatusCodes.INTERNAL_SERVER_ERROR));
   }  
+
+    // Create welcome notification for the new user
+    await notificationController.createNotification(
+      user._id,
+      'system',
+      'Welcome to Online Bookstore',
+      'Thank you for creating an account. Please confirm your email to start exploring our collection.',
+      null,
+      null
+    );
+    
+    // Notify admins about new user registration
+    const adminUsers = await userModel.find({ role: 'Admin' });
+    if (adminUsers && adminUsers.length > 0) {
+      const adminIds = adminUsers.map(admin => admin._id);
+      await notificationController.createMultiRecipientNotification(
+        adminIds,
+        'system',
+        'New User Registration',
+        `A new user ${user.name} (${user.email}) has registered.`,
+        user._id,
+        'User'
+      );
+    }  
   res.status(StatusCodes.CREATED).json({ message: "User added successfully", user });
 };
 //2]==================== Confirm Email =======================
