@@ -12,9 +12,9 @@ export const create = async (req, res, next) => {
 
     let imagePath;
     if (image) {
-      imagePath = image; 
+      imagePath = image;
     } else if (req.file) {
-      imagePath = `/uploads/${req.file.filename}`; 
+      imagePath = `/uploads/${req.file.filename}`;
     } else {
       return res.status(400).json({ error: "Image is required (file or URL)" });
     }
@@ -34,6 +34,12 @@ export const create = async (req, res, next) => {
 
 export const getAll = async (req, res, next) => {
   try {
+    let { skip, limit,filter } = req.query;
+    skip = Number.parseInt(skip);
+    limit = Number.parseInt(limit);
+    skip = !Number.isNaN(Number.parseInt(skip)) ? Number.parseInt(skip) : 0;
+    limit = !Number.isNaN(Number.parseInt(limit)) ? Number.parseInt(limit) : 10;
+    filter = filter ? JSON.parse(filter) : {};
 
     // Check cache first
     const cachedData = await redisClient.get(process.env.CACHE_KEY);
@@ -42,7 +48,7 @@ export const getAll = async (req, res, next) => {
     }
 
 
-    const books = await Book.find();
+    const books = await Book.find(filter).skip(skip).limit(limit);
     if (!books.length) return next(new ErrorClass('No books found', 404));
 
     // Store result in cache

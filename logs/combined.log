@@ -44,3 +44,5 @@
 {"level":"info","message":"::1 - - [07/Mar/2025:00:45:02 +0000] \"POST /book/addbook HTTP/1.1\" 201 357 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:45:02.893Z"}
 {"level":"info","message":"Book created successfully","timestamp":"2025-03-07T00:56:28.771Z"}
 {"level":"info","message":"::1 - - [07/Mar/2025:00:56:28 +0000] \"POST /book/addbook HTTP/1.1\" 201 312 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T00:56:28.775Z"}
+{"level":"info","message":"Fetching all books","timestamp":"2025-03-07T01:28:51.639Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:01:28:51 +0000] \"GET /book/allbooks HTTP/1.1\" 200 921 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T01:28:51.658Z"}
