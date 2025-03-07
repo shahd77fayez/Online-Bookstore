@@ -1,4 +1,5 @@
 import process from 'node:process';
+import redisClient from '../config/config-redis.js';
 import Book from '../DB/models/book.model.js';
 import userModel from '../DB/models/user.model.js';
 import {ErrorClass} from '../middlewares/ErrorClass.js';
@@ -16,6 +17,7 @@ export const create = async (req, res, next) => {
     if (image) {
       imagePath = image;
     } else if (req.file) {
+      // eslint-disable-next-line no-unused-vars, unused-imports/no-unused-vars
       imagePath = `/uploads/${req.file.filename}`;
     } else {
       return res.status(400).json({error: 'Image is required (file or URL)'});

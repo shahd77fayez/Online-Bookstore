@@ -50,7 +50,7 @@ const userSchema = new Schema (
     cart: { // Embedded Cart
       items: [
         {
-          bookId: {type: Types.ObjectId, ref: 'Book', required: true},
+          bookId: {type: Types.ObjectId, ref: 'Books', required: true},
           title: {type: String}, // Snapshot of title at time of adding to cart
           price: {type: Number}, // Snapshot of price
           quantity: {type: Number, required: true, min: 1}

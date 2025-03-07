@@ -34,7 +34,7 @@ export const addItemToCart = async (req, res, next) => {
   if (existingItem) {
     existingItem.quantity += quantity;
   } else {
-    cart.items.push({bookId: book._id, title: book.title, price: boomovek.price, quantity});
+    cart.items.push({bookId: book._id, title: book.title, price: book.price, quantity});
   }
 
   // Recalulate Total Price
