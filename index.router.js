@@ -32,7 +32,7 @@ export const initApp = (app, express) => {
       error: 'Invalid Routing',
       message: `Cannot ${req.method} ${req.originalUrl}`
     });
-    });
+  });
   // Global Error Handling Middleware
   app.use(globalErrorHandling);
 

@@ -1,4 +1,4 @@
-import process, { nextTick } from 'node:process';
+import process from 'node:process';
 import bcrypt from 'bcryptjs';
 import CryptoJS from 'crypto-js';
 import StatusCodes from 'http-status-codes';
@@ -53,16 +53,19 @@ const reactivateUser = async (user, req, res, next) => {
 
 // Function to create a new user
 const createNewUser = async (req, res, next) => {
-  // Encrypt the phone number
-  if (req.body.phone) {
-    user.phone = CryptoJS.AES.encrypt(req.body.phone, process.env.ENCRYPTION_KEY).toString();
-  }
-  // Generate code for email confirmation
+  // Generate email confirmation code
   const code = nanoid(6);
   req.body.code = code;
 
-  // Create the new user
+  // Create new user
   const user = await userModel.create(req.body);
+
+  // Encrypt phone number after user creation
+  if (req.body.phone) {
+    user.phone = CryptoJS.AES.encrypt(req.body.phone, process.env.ENCRYPTION_KEY).toString();
+    await user.save(); // Save the encrypted phone number
+  }
+
   logger.info('User signed up successfully', {email: req.body.email, userId: user._id});
 
   // Send confirmation email
@@ -110,7 +113,7 @@ export const signup = async (req, res, next) => {
 
   // Case 1: If user exists and is deleted, reactivate the account
   if (isEmailExist && isEmailExist.isDeleted) {
-    return await reactivateUser(isEmailExist, req, res,next);
+    return await reactivateUser(isEmailExist, req, res, next);
   }
 
   // Case 2: If user exists and is not deleted

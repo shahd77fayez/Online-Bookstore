@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import Order from '../DB/models/order.model.js';
 import userModel from '../DB/models/user.model.js';
 import {getIO} from '../index.router.js';
+import {sendEmail} from '../middlewares/email.js';
 import {ErrorClass} from '../middlewares/ErrorClass.js';
 import logger from '../middlewares/logger.js';
 import {validateBooks} from '../validation/BookStockValidation.js';
@@ -28,6 +29,14 @@ export const placeOrder = async (req, res) => {
     await session.commitTransaction();
     session.endSession();
     logger.info(`Order ${order._id} placed successfully for user ${req.user.id}`);
+
+    await sendEmail({
+      to: req.user.email,
+      subject: 'Order Confirmation',
+      title: 'Your Order Has Been Placed',
+      username: req.user.username,
+      message: `Thank you for your order! Your order ID is <b>${order._id}</b>. We will notify you once it's shipped.`
+    });
 
     // Emit socket event for new order
     const io = getIO();
@@ -76,7 +85,7 @@ export const placeOrder = async (req, res) => {
     logger.error(`Error placing order for user ${req.user.id}: ${error.message}`);
     console.error(error);
     return res.status(error.status || StatusCodes.INTERNAL_SERVER_ERROR)
-      .json({msgError: error.message, status: StatusCodes.BAD_REQUEST});
+      .json({message: error.message, status: StatusCodes.BAD_REQUEST});
   }
 };
 
@@ -104,21 +113,40 @@ export const updateOrderStatus = async (req, res) => {
     // Validate the status
     const validStatuses = ['pending', 'completed', 'canceled'];
     if (!validStatuses.includes(status)) {
-      return res.status(400).json({message: 'Invalid status.'});
+      return res.status(StatusCodes.BAD_REQUEST).json({message: 'Invalid status.'});
     }
 
     // Find the order by ID
-    const order = await Order.findById(orderId).populate('user', 'name email _id');
+    const order = await Order.findById(orderId).populate('user', 'name email username _id');
     if (!order) {
-      return res.status(404).json({message: 'Order not found.'});
+      return res.status(StatusCodes.NOT_FOUND).json({message: 'Order not found.'});
+    }
+
+    // Ensure order has an associated user
+    if (!order.user) {
+      return res.status(StatusCodes.BAD_REQUEST).json({message: 'Order has no associated user.'});
     }
 
     // Store old status for comparison
     const oldStatus = order.status;
 
+    // If the status is unchanged, return early
+    if (oldStatus === status) {
+      return res.status(StatusCodes.OK).json({message: 'Order status remains unchanged', order});
+    }
+
     // Update the order's status
     order.status = status;
     await order.save(); // Save the updated order
+
+    // Email Notification
+    await sendEmail({
+      to: order.ser.email,
+      subject: 'Order Status Update',
+      title: 'Your Order Status Has Changed',
+      username: order.user.username,
+      message: `Your order #${order._id} status has been updated to <b>${order.status}</b>.`
+    });
 
     // Only send notification if status actually changed
     if (oldStatus !== status) {
