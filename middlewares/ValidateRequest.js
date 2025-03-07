@@ -1,10 +1,13 @@
-export const validateRequest = (schema) => (req, res, next) => {
-    const { error } = schema.validate(req.body, { abortEarly: false });
+// middlewares/ValidateRequest.js
+import { orderSchema } from "../validation/orderValidation.js";
+import Joi from "joi";
+
+export const validateRequest = (schema) => {
+  return (req, res, next) => {
+    const { error } = schema.validate(req.body);
     if (error) {
-        return res.status(400).json({
-            message: "Validation error",
-            errors: error.details.map((detail) => detail.message),
-        });
+      return res.status(400).json({ message: error.details[0].message });
     }
     next();
+  };
 };

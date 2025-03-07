@@ -19,7 +19,7 @@ export const auth = () => {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Please login first" });
       }
 
-      const token = authorization; 
+      const token = authorization.split(' ')[1];  // Extract the token from the 'Bearer <token>' format
       
       if (!token) {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: "Token missing" });

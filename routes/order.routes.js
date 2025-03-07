@@ -1,17 +1,17 @@
 import express from "express";
-import { placeOrder, getOrderHistory } from "../controllers/order.controller.js";
+import { placeOrder, getOrderHistory, updateOrderStatus } from "../controllers/order.controller.js";
 import { validateRequest } from "../middlewares/ValidateRequest.js";
-import { orderSchema } from "../validation/OrderValidation.js";
+import { orderSchema } from "../validation/orderValidation.js";  // Adjusted casing
 import { auth } from "../middlewares/auth.js";  
+import { checkRole } from "../middlewares/roleCheck.js"; // Role-based check (admin)
+
+
 const router = express.Router();
+
 router.route("/")
-  .post(auth(),validateRequest(orderSchema), placeOrder)  
+  .post(auth(), validateRequest(orderSchema), placeOrder)  
   .get(auth(), getOrderHistory);  
 
-const orderRouter = express.Router();
-
-orderRouter.route("/")
-  .post(auth(),validateRequest(orderSchema), placeOrder)
-  .get(auth(),getOrderHistory);
-
-export default orderRouter;
+router.route("/:orderId/status")
+  .patch(auth(), checkRole('Admin'), updateOrderStatus);
+export default router; // Correct export here

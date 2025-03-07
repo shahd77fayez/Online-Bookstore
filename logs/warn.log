@@ -1,2 +1,5 @@
 {"level":"error","message":"Error creating book: Books validation failed: reviews.0: Cast to [ObjectId] failed for value \"[ '1' ]\" (type string) at path \"reviews.0\" because of \"CastError\"","timestamp":"2025-03-06T23:43:12.430Z"}
 {"level":"error","message":"Error creating book: Books validation failed: title: Path `title` (`a`) is shorter than the minimum allowed length (3)., author: Path `author` is required., price: Path `price` (-5) is less than minimum allowed value (0)., stock: Validator failed for path `stock` with value `3.5`","timestamp":"2025-03-06T23:45:17.556Z"}
+{"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T02:15:42.869Z"}
+{"level":"error","message":"Error fetching books: redisClient is not defined","timestamp":"2025-03-07T03:05:49.953Z"}
+{"level":"warn","message":"Signup attempt with existing email: tokaedddswssssky@gmail.com","timestamp":"2025-03-07T04:14:01.446Z"}

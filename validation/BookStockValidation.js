@@ -19,6 +19,7 @@ export const validateBooks = async (books, session) => {
         if (!book) {
             throw new ErrorClass(`Book not found: ${item.book}`, StatusCodes.NOT_FOUND);
         }
+        console.log(`Book found: ${book.title} with stock: ${book.stock}`);
         if (book.stock < item.quantity) {
             throw new ErrorClass(`Sorry, only ${book.stock} copies of "${book.title}" are available.`, StatusCodes.BAD_REQUEST);
         }
@@ -29,5 +30,6 @@ export const validateBooks = async (books, session) => {
 
     // Execute all stock updates
     await Promise.all(bookUpdates);
+    console.log('Calculated Total Price:', totalPrice); // Log the total price
     return totalPrice;
 };

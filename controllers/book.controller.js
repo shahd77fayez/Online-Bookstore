@@ -1,7 +1,6 @@
 import Book from '../DB/models/book.model.js';
 import logger from '../middlewares/logger.js';
 import { ErrorClass } from '../middlewares/ErrorClass.js';
-import redisClient from '../config/config-redis.js';
 import { bookSchemaValidation } from "../validation/bookValidation.js";
 
 export const create = async (req, res, next) => {

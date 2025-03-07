@@ -10,12 +10,16 @@ export const placeOrder = async (req, res, next) => {
     const session = await mongoose.startSession();
     session.startTransaction();
     try {
+        console.log("Request body:", req.body); // Log the request body for debugging
         if (!req.user || !req.user.id) {
             throw new ErrorClass("Unauthorized: Please log in to place an order.", StatusCodes.UNAUTHORIZED);
         }
         logger.info(`Placing order for user ${req.user.id}`);
         const { books } = req.body;
+
         const totalPrice = await validateBooks(books, session);
+        logger.info(`Total price calculated: ${totalPrice}`);
+
         const order = new Order({ user: req.user.id, books, totalPrice });
         await order.save({ session });
 
@@ -44,13 +48,16 @@ export const placeOrder = async (req, res, next) => {
         await session.abortTransaction();
         session.endSession();
         logger.error(`Error placing order for user ${req.user.id}: ${error.message}`);
-        next(error);
+        console.error(error);
+        return res.status(error.status || StatusCodes.INTERNAL_SERVER_ERROR)
+                   .json({ msgError: error.message, status: StatusCodes.BAD_REQUEST });
     }
 };
 
 export const getOrderHistory = async (req, res) => {
     try {
         logger.info(`Fetching order history for user ${req.user.id}`);
+        
         const orders = await Order.find({ user: req.user.id })
         .populate('books.book', 'title author price')
         .sort({ createdAt: -1 });  
@@ -62,5 +69,39 @@ export const getOrderHistory = async (req, res) => {
             .status(StatusCodes.INTERNAL_SERVER_ERROR)
             .json({ message: `Server error: ${error.message}` });
 
+    }
+};
+
+export const updateOrderStatus = async (req, res, next) => {
+    const { orderId } = req.params;
+    const { status } = req.body;
+
+    try {
+        // Validate the status
+        const validStatuses = ['pending', 'completed', 'canceled'];
+        if (!validStatuses.includes(status)) {
+            return res.status(400).json({ message: 'Invalid status.' });
+        }
+
+        // Find the order by ID
+        const order = await Order.findById(orderId);
+        if (!order) {
+            return res.status(404).json({ message: 'Order not found.' });
+        }
+
+        // Update the order's status
+        order.status = status;
+        await order.save();  // Save the updated order
+
+        return res.status(200).json({
+            message: 'Order status updated successfully',
+            order,  
+        });
+    } catch (error) {
+        console.error('Error updating order status:', error);
+        return res.status(500).json({
+            message: 'Error updating order status',
+            error: error.message,  
+        });
     }
 };
