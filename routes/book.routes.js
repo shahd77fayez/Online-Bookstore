@@ -7,10 +7,11 @@ import {
   deleteById
 } from '../controllers/book.controller.js';
 import { asyncHandler } from '../middlewares/ErrorHandling.js';
+import {upload} from '../middlewares/multer.middleware.js';
 
 const bookRouter = express.Router();
 
-bookRouter.post('/addbook', asyncHandler(create));
+bookRouter.post('/addbook',upload.single("image"),asyncHandler(create));
 bookRouter.get('/allbooks', asyncHandler(getAll));
 bookRouter.get('/:id', asyncHandler(getById));
 bookRouter.patch('/:id', asyncHandler(updateById));

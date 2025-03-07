@@ -6,8 +6,19 @@ import { bookSchemaValidation } from "../validation/bookValidation.js";
 
 export const create = async (req, res, next) => {
   try {
+    const { image } = req.body;
     const { err } = bookSchemaValidation.validate(req.body);
     if (err) return next(new ErrorClass(err.message, 500));
+
+    let imagePath;
+    if (image) {
+      imagePath = image; 
+    } else if (req.file) {
+      imagePath = `/uploads/${req.file.filename}`; 
+    } else {
+      return res.status(400).json({ error: "Image is required (file or URL)" });
+    }
+
     const newBook = await Book.create(req.body);
     logger.info('Book created successfully');
 
@@ -50,7 +61,7 @@ export const getById = async (req, res, next) => {
   try {
     const book = await Book.findOne({ bookId: req.params.id });
     if (!book) return next(new ErrorClass('Book not found', 404));
-    
+
     res.json({ data: book });
   } catch (error) {
     next(new ErrorClass(error.message, 500));
@@ -77,7 +88,7 @@ export const updateById = async (req, res, next) => {
     }
 
 
-    
+
     res.json({ message: 'Book updated successfully', data: updatedBook });
   } catch (error) {
     next(new ErrorClass(error.message, 500));
@@ -86,7 +97,7 @@ export const updateById = async (req, res, next) => {
 
 export const deleteById = async (req, res, next) => {
   try {
-    const deletedBook = await Book.findOneAndDelete({ bookId: req.params.id});
+    const deletedBook = await Book.findOneAndDelete({ bookId: req.params.id });
     if (!deletedBook) return next(new ErrorClass('Book not found', 404));
 
     // Update cache if exists
@@ -101,8 +112,8 @@ export const deleteById = async (req, res, next) => {
       // repopulation on next GET request to be consistent with the new data
       await redisClient.del(process.env.CACHE_KEY);
     }
-    
-    
+
+
     res.json({ message: 'Book deleted successfully' });
   } catch (error) {
     next(new ErrorClass(error.message, 500));
