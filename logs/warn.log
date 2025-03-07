@@ -46,3 +46,5 @@
 {"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:06:50.031Z"}
 {"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-07T18:09:31.185Z"}
 {"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:09:41.204Z"}
+{"level":"warn","message":"Invalid confirmation code for email: gmalak541@gmail.com","timestamp":"2025-03-07T18:42:40.986Z"}
+{"level":"warn","message":"Failed login attempt for email: gmalak541@gmail.com","timestamp":"2025-03-07T18:42:46.950Z"}

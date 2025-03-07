@@ -28,9 +28,11 @@ export const initApp = (app, express) => {
   // Handle Invalid Routes
   app.use('*', (req, res) => {
     console.warn(`Invalid Route: ${req.method} ${req.originalUrl}`);
-    res.status(404).send('Invalid Routing. Please check URL or Method.');
-  });
-
+    res.status(404).json({
+      error: 'Invalid Routing',
+      message: `Cannot ${req.method} ${req.originalUrl}`
+    });
+    });
   // Global Error Handling Middleware
   app.use(globalErrorHandling);
 
