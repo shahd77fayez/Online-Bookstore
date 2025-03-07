@@ -356,3 +356,21 @@
 {"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T14:22:44.290Z"}
 {"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T14:22:44.995Z"}
 {"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T14:22:45.129Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T14:27:41.037Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T14:27:41.715Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T14:27:41.853Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T14:27:42.018Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T14:27:42.018Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T14:27:42.018Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T14:29:38.452Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T14:29:39.147Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T14:29:39.293Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T14:29:39.451Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T14:29:39.451Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T14:29:39.451Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T14:30:31.271Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T14:30:31.950Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T14:30:32.084Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T14:30:32.239Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T14:30:32.239Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T14:30:32.240Z"}
