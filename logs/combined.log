@@ -392,3 +392,15 @@
 {"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T15:10:18.497Z"}
 {"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T15:10:18.498Z"}
 {"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T15:10:18.498Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-07T18:06:40.013Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:06:50.031Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T18:06:50.032Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-07T18:09:31.185Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:09:41.204Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T18:09:41.206Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T18:12:27.596Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T18:12:29.369Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T18:12:29.511Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T18:12:29.741Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T18:12:29.741Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T18:12:29.743Z"}

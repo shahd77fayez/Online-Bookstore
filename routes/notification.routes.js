@@ -1,12 +1,10 @@
-import { Router } from 'express';
-import { notificationController } from '../controllers/notification.controller.js';
-import { auth } from '../middlewares/auth.js';
-import { validateQueryParams } from '../middlewares/notificationValidation.js';
-import { asyncHandler } from '../middlewares/ErrorHandling.js';
+import {Router} from 'express';
+import {notificationController} from '../controllers/notification.controller.js';
+import {auth} from '../middlewares/auth.js';
+import {asyncHandler} from '../middlewares/ErrorHandling.js';
+import {validateQueryParams} from '../middlewares/notificationValidation.js';
 
 const router = Router();
-
-
 
 // Get all notifications for the authenticated user (with pagination and filtering)
 router.get('/', auth(), validateQueryParams, asyncHandler(notificationController.getUserNotifications));

@@ -1,15 +1,17 @@
-import mongoose from "mongoose";
-const connectDB = async()=>{
-    return await mongoose
+import process from 'node:process';
+import mongoose from 'mongoose';
+
+const connectDB = async () => {
+  return await mongoose
     .connect(process.env.DB_URL)
-    .then(res=>{
-        console.log(`DB Connected Successfully........`);
+    .then((_res) => {
+      console.log(`DB Connected Successfully........`);
     })
     .catch(
-        err=>{
-            console.log(`Failed Connection: ${err}`);
-        }
+      (err) => {
+        console.log(`Failed Connection: ${err}`);
+      }
     );
-}
+};
 
-export default connectDB
+export default connectDB;

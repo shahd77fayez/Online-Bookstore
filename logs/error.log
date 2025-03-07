@@ -7,3 +7,7 @@
 {"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T13:40:03.452Z"}
 {"error":{},"level":"error","message":"Error sending email","timestamp":"2025-03-07T14:11:05.673Z"}
 {"email":"malak.ghazyy16@gmail.com","level":"error","message":"Email not found","timestamp":"2025-03-07T14:12:41.395Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-07T18:06:40.013Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:06:50.031Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-07T18:09:31.185Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-07T18:09:41.204Z"}

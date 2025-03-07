@@ -1,5 +1,8 @@
-export const createHtml =({ subject, title, username, message }) => {
-    return `  <!DOCTYPE html>
+import process from 'node:process';
+import nodemailer from 'nodemailer';
+
+export const createHtml = ({subject, title, username, message}) => {
+  return `  <!DOCTYPE html>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -30,28 +33,27 @@ export const createHtml =({ subject, title, username, message }) => {
   </html>
   `;
 };
-import nodemailer from 'nodemailer';
 
-export const sendEmail = async ({ to, subject, title, username, message }) => {
-    if (!to) {
-        console.error("No recipient email provided!");
-        throw new Error("No recipient email provided");
+export const sendEmail = async ({to, subject, title, username, message}) => {
+  if (!to) {
+    console.error('No recipient email provided!');
+    throw new Error('No recipient email provided');
+  }
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_PASSWORD
     }
-    let transporter = nodemailer.createTransport({
-        service:'gmail',
-        auth:{
+  });
+  const htmlContent = createHtml({subject, title, username, message});
 
-            user:process.env.EMAIL,
-            pass:process.env.EMAIL_PASSWORD,
-        },
-    });
-    const htmlContent = createHtml({ subject, title, username, message });
-
-    let info = await transporter.sendMail({
-        from :`"Online Book Store" <${process.env.EMAIL}>`,
-        to,
-        subject,
-        html:htmlContent,
-    });
-    return info.rejected.length ?false : true
-}
+  const info = await transporter.sendMail({
+    from: `"Online Book Store" <${process.env.EMAIL}>`,
+    to,
+    subject,
+    html: htmlContent
+  });
+  return !info.rejected.length;
+};

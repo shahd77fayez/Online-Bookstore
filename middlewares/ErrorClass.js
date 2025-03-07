@@ -1,6 +1,6 @@
-export class ErrorClass extends Error{
-    constructor(msg,status){
-        super(msg)
-        this.status=status
-    }
+export class ErrorClass extends Error {
+  constructor(msg, status) {
+    super(msg);
+    this.status = status;
+  }
 }
