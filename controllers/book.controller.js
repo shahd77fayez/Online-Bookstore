@@ -1,4 +1,5 @@
 import process from 'node:process';
+import dotenv from 'dotenv';
 import redisClient from '../config/config-redis.js';
 import Book from '../DB/models/book.model.js';
 import userModel from '../DB/models/user.model.js';
@@ -6,6 +7,8 @@ import {ErrorClass} from '../middlewares/ErrorClass.js';
 import logger from '../middlewares/logger.js';
 import {bookSchemaValidation} from '../validation/bookValidation.js';
 import {notificationController} from './notification.controller.js';
+
+dotenv.config({path: './config/.env'});
 
 export const create = async (req, res, next) => {
   try {
@@ -66,7 +69,17 @@ export const getAll = async (req, res, next) => {
       return res.status(200).json(JSON.parse(cachedData));
     }
 
-    const books = await Book.find(filter).skip(skip).limit(limit);
+    const books = await Book.find(filter)
+      .skip(skip)
+      .limit(limit)
+      .populate({
+        path: 'reviews',
+        select: 'rating review',
+        populate: {
+          path: 'user',
+          select: 'firstName lastName username email'
+        }
+      });
     if (!books.length) return next(new ErrorClass('No books found', 404));
 
     // Store result in cache
@@ -82,7 +95,15 @@ export const getAll = async (req, res, next) => {
 
 export const getById = async (req, res, next) => {
   try {
-    const book = await Book.findOne({bookId: req.params.id});
+    const book = await Book.findOne({bookId: req.params.id})
+      .populate({
+        path: 'reviews',
+        select: 'rating review',
+        populate: {
+          path: 'user',
+          select: 'firstName lastName username email'
+        }
+      });
     if (!book) return next(new ErrorClass('Book not found', 404));
 
     res.json({data: book});
