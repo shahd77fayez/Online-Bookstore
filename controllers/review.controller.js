@@ -180,7 +180,26 @@ export const deleteReview = async (req, res) => {
     return res.status(403).json({message: 'You can only delete your own reviews'});
   }
 
+  // Remove review from book's reviews array
+  await Book.findByIdAndUpdate(
+    review.book,
+    {$pull: {reviews: reviewId}}
+  );
+
+  // Delete the review
   await review.deleteOne();
+
+  // Update cache if exists
+  const cachedReviews = await redisClient.get(process.env.CACHE_KEY);
+  if (cachedReviews) {
+    const reviews = JSON.parse(cachedReviews);
+    const updatedReviews = reviews.filter((review) => review._id !== reviewId);
+    await redisClient.setEx(process.env.CACHE_KEY, 3600, JSON.stringify(updatedReviews));
+  } else {
+    // repopulation on next GET request to be consistent with the new data
+    await redisClient.del(process.env.CACHE_KEY);
+  }
+
   logger.info(`Review ${reviewId} deleted successfully by user ${req.user._id}`);
   res.json({message: 'Review deleted successfully'});
 };
