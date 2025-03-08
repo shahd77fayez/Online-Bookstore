@@ -141,7 +141,7 @@ export const updateOrderStatus = async (req, res) => {
 
     // Email Notification
     await sendEmail({
-      to: order.ser.email,
+      to: order.user.email,
       subject: 'Order Status Update',
       title: 'Your Order Status Has Changed',
       username: order.user.username,
