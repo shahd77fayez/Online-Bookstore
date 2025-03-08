@@ -2,15 +2,18 @@ import Joi from 'joi';
 import {Types} from 'mongoose';
 
 const isValidObjectId = (value, helpers) => {
-  if (!Types.ObjectId.isValid(value)) {
+  if (!value) return value;
+  // Convert ObjectId to string if it's a MongoDB ObjectId
+  const stringValue = value.toString();
+  if (!Types.ObjectId.isValid(stringValue)) {
     return helpers.error('any.invalid');
   }
-  return value;
+  return stringValue;
 };
 
 export const createNotificationSchema = Joi.object({
   recipients: Joi.array().items(
-    Joi.string().custom(isValidObjectId, 'valid MongoDB id')
+    Joi.any().custom(isValidObjectId, 'valid MongoDB id')
   ),
   type: Joi.string()
     .valid('order_status', 'review', 'system')
@@ -23,7 +26,7 @@ export const createNotificationSchema = Joi.object({
     .trim(),
   isRead: Joi.boolean()
     .default(false),
-  relatedItem: Joi.string()
+  relatedItem: Joi.any()
     .custom(isValidObjectId, 'valid MongoDB id')
     .when('type', {
       is: Joi.exist(),
