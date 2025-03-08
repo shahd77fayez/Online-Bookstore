@@ -1,19 +1,6 @@
 import Notification from '../DB/models/notification.model.js';
 import logger from '../middlewares/logger.js';
-// Validation helper
-const validateNotificationInput = (type, title, message) => {
-  const errors = [];
-  if (!['order_status', 'review', 'system'].includes(type)) {
-    errors.push('Invalid notification type');
-  }
-  if (!title || title.trim().length < 3) {
-    errors.push('Title must be at least 3 characters long');
-  }
-  if (!message || message.trim().length < 5) {
-    errors.push('Message must be at least 5 characters long');
-  }
-  return errors;
-};
+import {createNotificationSchema, updateNotificationSchema} from '../validation/NotificationValidation.js';
 
 export const notificationController = {
   // Get notifications for a user with pagination and filtering
@@ -74,6 +61,12 @@ export const notificationController = {
   // Mark notification as read
   async markAsRead(req, res) {
     try {
+      // Validate update data using Joi schema
+      const {error} = updateNotificationSchema.validate({isRead: true});
+      if (error) {
+        return res.status(400).json({message: error.details[0].message});
+      }
+
       logger.info(`User ${req.user._id} marking notification ${req.params.id} as read`);
       const notification = await Notification.findOneAndUpdate(
         {_id: req.params.id, recipients: req.user._id},
@@ -107,29 +100,28 @@ export const notificationController = {
   // Create a notification for a single recipient (internal use)
   async createNotification(recipientId, type, title, message, relatedItem = null, itemModel = null) {
     try {
-      // Validate input
-      const validationErrors = validateNotificationInput(type, title, message);
-      if (validationErrors.length > 0) {
-        throw new Error(`Validation failed: ${validationErrors.join(', ')}`);
-      }
-
-      // Trim input
-      title = title.trim();
-      message = message.trim();
-
-      // Create and save notification
-      const notification = new Notification({
+      // Prepare notification data
+      const notificationData = {
         recipients: [recipientId],
         type,
         title,
         message,
         relatedItem,
         itemModel
-      });
+      };
 
+      // Validate using Joi schema
+      const {error} = createNotificationSchema.validate(notificationData);
+      if (error) {
+        throw new Error(`Validation failed: ${error.details[0].message}`);
+      }
+
+      // Create and save notification
+      const notification = new Notification(notificationData);
       await notification.save();
       logger.info(`Notification created for user ${recipientId} - Type: ${type}, Title: ${title}`);
-      // Return populated notification
+
+      // Follow correct pattern: query for saved document with populated fields
       const populatedNotification = await Notification.findById(notification._id)
         .populate('relatedItem', 'title name status');
 
@@ -143,30 +135,28 @@ export const notificationController = {
   // Create a notification for multiple recipients (internal use)
   async createMultiRecipientNotification(recipientIds, type, title, message, relatedItem = null, itemModel = null) {
     try {
-      // Validate input
-      const validationErrors = validateNotificationInput(type, title, message);
-      if (validationErrors.length > 0) {
-        throw new Error(`Validation failed: ${validationErrors.join(', ')}`);
-      }
-
-      // Trim input
-      title = title.trim();
-      message = message.trim();
-
-      // Create and save notification
-      const notification = new Notification({
+      // Prepare notification data
+      const notificationData = {
         recipients: recipientIds,
         type,
         title,
         message,
         relatedItem,
         itemModel
-      });
+      };
 
+      // Validate using Joi schema
+      const {error} = createNotificationSchema.validate(notificationData);
+      if (error) {
+        throw new Error(`Validation failed: ${error.details[0].message}`);
+      }
+
+      // Create and save notification
+      const notification = new Notification(notificationData);
       await notification.save();
       logger.info(`Notification created for ${recipientIds.length} recipients - Type: ${type}, Title: ${title}`);
 
-      // Return populated notification following the correct pattern
+      // Follow correct pattern: query for saved document with populated fields
       const populatedNotification = await Notification.findById(notification._id)
         .populate('relatedItem', 'title name status');
 
