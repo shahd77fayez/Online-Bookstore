@@ -15,13 +15,17 @@ export const auth = () => {
   return async (req, res, next) => {
     try {
       const {authorization} = req.headers;
+      console.log(authorization);
 
       if (!authorization) {
         return res.status(StatusCodes.UNAUTHORIZED).json({message: 'Please login first'});
       }
 
       // const token = authorization.split(' ')[1];  // Extract the token from the 'Bearer <token>' format
-      const token = authorization.trim();
+      const token = authorization.startsWith('Bearer ')
+        ? authorization.slice(7).trim()
+        : authorization.trim();
+      console.log(token);
       if (!token) {
         return res.status(StatusCodes.UNAUTHORIZED).json({message: 'Token missing'});
       }

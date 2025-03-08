@@ -9,7 +9,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "kill $(lsof -t -i:3000) & nodemon index.js"
+    "start": "kill $(lsof -t -i:3000) & nodemon index.js",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
   },
   "dependencies": {
     "@joi/date": "^2.1.1",
@@ -35,7 +37,7 @@
     "winston": "^3.17.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.7.0",
+    "@antfu/eslint-config": "^4.8.1",
     "eslint": "^9.21.0"
   }
 }

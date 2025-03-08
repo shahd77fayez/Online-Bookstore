@@ -28,7 +28,7 @@ const notificationSchema = new mongoose.Schema({
   },
   itemModel: {
     type: String,
-    enum: ['Order', 'Book', 'Review']
+    enum: ['Order', 'Books', 'Review']
   },
   createdAt: {
     type: Date,

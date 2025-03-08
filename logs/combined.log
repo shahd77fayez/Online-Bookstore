@@ -550,3 +550,106 @@
 {"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T19:18:35.417Z"}
 {"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T19:18:35.417Z"}
 {"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T19:18:35.417Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T22:50:15.542Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T22:50:16.189Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T22:50:16.362Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T22:50:16.535Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T22:50:16.536Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T22:50:16.536Z"}
+{"email":"admin1@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T22:50:29.316Z"}
+{"level":"info","message":"User signed in successfully: admin1@example.com","timestamp":"2025-03-07T22:50:29.522Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:50:29 +0000] \"POST /user/signin HTTP/1.1\" 202 255 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:50:29.528Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:51:44 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:51:44.881Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:52:25 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:52:25.820Z"}
+{"email":"admin1@example.com","level":"info","message":"Sign-in attempt","timestamp":"2025-03-07T22:54:39.705Z"}
+{"level":"info","message":"User signed in successfully: admin1@example.com","timestamp":"2025-03-07T22:54:39.980Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:54:39 +0000] \"POST /user/signin HTTP/1.1\" 202 255 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:54:39.981Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:55:01 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:55:01.526Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:55:08 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:55:08.585Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:56:15 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:56:15.029Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T22:56:54.172Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T22:56:55.697Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T22:56:55.817Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T22:56:56.004Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T22:56:56.005Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T22:56:56.006Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:56:59 +0000] \"POST /book/addbook HTTP/1.1\" 401 62 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:56:59.709Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T22:59:21.733Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T22:59:23.459Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T22:59:23.584Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T22:59:23.765Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T22:59:23.766Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T22:59:23.767Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-07T22:59:34.723Z"}
+{"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-07T22:59:35.187Z"}
+{"level":"error","message":"Error creating book: Schema hasn't been registered for model \"Book\".\nUse mongoose.model(name, schema)","timestamp":"2025-03-07T22:59:35.347Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:22:59:35 +0000] \"POST /book/addbook HTTP/1.1\" 400 111 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T22:59:35.360Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T23:04:36.097Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T23:04:36.728Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T23:04:36.847Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T23:04:36.969Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T23:04:36.969Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T23:04:36.970Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-07T23:05:48.387Z"}
+{"level":"error","message":"Error creating book: Notification validation failed: itemModel: `Books` is not a valid enum value for path `itemModel`.","timestamp":"2025-03-07T23:05:48.607Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:23:05:48 +0000] \"POST /book/addbook HTTP/1.1\" 400 126 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T23:05:48.621Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T23:08:25.160Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T23:08:26.003Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T23:08:26.239Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T23:08:26.397Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T23:08:26.398Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T23:08:26.399Z"}
+{"level":"info","message":"Fetching all books","timestamp":"2025-03-07T23:08:34.696Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:23:08:34 +0000] \"GET /book/allbooks HTTP/1.1\" 200 5730 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T23:08:34.705Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:23:09:10 +0000] \"GET /book/allbooks HTTP/1.1\" 200 5682 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T23:09:10.283Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-07T23:11:29.976Z"}
+{"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-07T23:11:30.410Z"}
+{"level":"error","message":"Error creating book: Schema hasn't been registered for model \"Book\".\nUse mongoose.model(name, schema)","timestamp":"2025-03-07T23:11:30.697Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:23:11:30 +0000] \"POST /book/addbook HTTP/1.1\" 400 111 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T23:11:30.701Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-07T23:12:22.828Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-07T23:12:23.553Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-07T23:12:23.678Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-07T23:12:23.805Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-07T23:12:23.806Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-07T23:12:23.807Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-07T23:12:45.631Z"}
+{"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-07T23:12:45.954Z"}
+{"level":"error","message":"Error creating book: Schema hasn't been registered for model \"Book\".\nUse mongoose.model(name, schema)","timestamp":"2025-03-07T23:12:46.170Z"}
+{"level":"info","message":"::1 - - [07/Mar/2025:23:12:46 +0000] \"POST /book/addbook HTTP/1.1\" 400 111 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-07T23:12:46.180Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T00:02:57.217Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T00:02:59.357Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T00:02:59.478Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T00:02:59.662Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T00:02:59.663Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T00:02:59.664Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T14:36:06.881Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T14:36:08.951Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T14:36:09.104Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T14:36:09.248Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T14:36:09.249Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T14:36:09.250Z"}
+{"level":"error","message":"Error creating book: E11000 duplicate key error collection: test.books index: title_1 dup key: { title: \"where the crawdads singggggggggggggggggggggg\" }","timestamp":"2025-03-08T14:36:56.408Z"}
+{"level":"info","message":"::1 - - [08/Mar/2025:14:36:56 +0000] \"POST /book/addbook HTTP/1.1\" 400 161 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T14:36:56.424Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-08T14:37:14.765Z"}
+{"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-08T14:37:15.087Z"}
+{"level":"error","message":"Error creating book: Schema hasn't been registered for model \"Book\".\nUse mongoose.model(name, schema)","timestamp":"2025-03-08T14:37:15.262Z"}
+{"level":"info","message":"::1 - - [08/Mar/2025:14:37:15 +0000] \"POST /book/addbook HTTP/1.1\" 400 111 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T14:37:15.265Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T14:39:03.765Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T14:39:04.464Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T14:39:04.607Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T14:39:04.747Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T14:39:04.747Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T14:39:04.748Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-08T14:39:12.279Z"}
+{"level":"error","message":"Error creating book: Notification validation failed: itemModel: `Book` is not a valid enum value for path `itemModel`.","timestamp":"2025-03-08T14:39:12.449Z"}
+{"level":"info","message":"::1 - - [08/Mar/2025:14:39:12 +0000] \"POST /book/addbook HTTP/1.1\" 400 125 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T14:39:12.463Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T14:39:30.435Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T14:39:31.747Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T14:39:31.868Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T14:39:31.991Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T14:39:31.992Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T14:39:31.994Z"}
+{"level":"info","message":"Book created successfully","timestamp":"2025-03-08T14:39:39.161Z"}
+{"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-08T14:39:39.469Z"}
+{"level":"info","message":"Notification sent to 16 users about new book","timestamp":"2025-03-08T14:39:39.811Z"}
+{"level":"info","message":"::1 - - [08/Mar/2025:14:39:39 +0000] \"POST /book/addbook HTTP/1.1\" 201 366 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T14:39:39.829Z"}

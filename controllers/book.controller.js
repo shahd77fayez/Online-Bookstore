@@ -36,13 +36,14 @@ export const create = async (req, res, next) => {
     const users = await userModel.find({isDeleted: false, isConfirmed: true});
     if (users && users.length > 0) {
       const userIds = users.map((user) => user._id);
+      console.log('Book Model:', Book);
       await notificationController.createMultiRecipientNotification(
         userIds,
         'system',
         'New Book Added',
         `A new book "${newBook.title}" by ${newBook.author} has been added to our collection.`,
         newBook._id,
-        'Book'
+        'Books'
       );
       logger.info(`Notification sent to ${users.length} users about new book`);
     }
