@@ -662,3 +662,19 @@
 {"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T21:23:01.822Z"}
 {"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T21:23:01.822Z"}
 {"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T21:23:01.822Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T22:06:14.509Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T22:06:15.294Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T22:06:15.416Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T22:06:15.650Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T22:06:15.651Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T22:06:15.652Z"}
+{"level":"info","message":"::1 - - [08/Mar/2025:22:06:36 +0000] \"POST /payment HTTP/1.1\" 200 80 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T22:06:36.194Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T22:08:57.448Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T22:08:58.856Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T22:08:58.973Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T22:08:59.098Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T22:08:59.098Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T22:08:59.099Z"}
+{"level":"info","message":"Placing order for user 67ca5a8d9861ff715a559513","timestamp":"2025-03-08T22:09:16.542Z"}
+{"level":"info","message":"Total price calculated: 20.99","timestamp":"2025-03-08T22:09:16.794Z"}
+{"level":"info","message":"Order 67ccc00cf61154bdb6df428e placed successfully for user 67ca5a8d9861ff715a559513","timestamp":"2025-03-08T22:09:17.055Z"}
