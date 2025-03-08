@@ -34,7 +34,7 @@ export const createNotificationSchema = Joi.object({
       otherwise: Joi.optional()
     }),
   itemModel: Joi.string()
-    .valid('Order', 'Books', 'Review')
+    .valid('Order', 'Books', 'User', 'Review')
     .when('relatedItem', {
       is: Joi.exist(),
       then: Joi.required(),
