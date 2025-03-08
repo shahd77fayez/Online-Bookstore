@@ -653,3 +653,12 @@
 {"level":"info","message":"Notification created for 16 recipients - Type: system, Title: New Book Added","timestamp":"2025-03-08T14:39:39.469Z"}
 {"level":"info","message":"Notification sent to 16 users about new book","timestamp":"2025-03-08T14:39:39.811Z"}
 {"level":"info","message":"::1 - - [08/Mar/2025:14:39:39 +0000] \"POST /book/addbook HTTP/1.1\" 201 366 \"-\" \"PostmanRuntime/7.43.0\"","timestamp":"2025-03-08T14:39:39.829Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-08T21:14:41.630Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-08T21:14:51.687Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T21:14:51.688Z"}
+{"level":"info","message":"Admin admin1@example.com already exists","timestamp":"2025-03-08T21:22:53.630Z"}
+{"level":"info","message":"Admin admin2@example.com already exists","timestamp":"2025-03-08T21:22:55.663Z"}
+{"level":"info","message":"Admin admin3@example.com already exists","timestamp":"2025-03-08T21:23:01.257Z"}
+{"level":"info","message":"Cleaned up 0 old notifications","timestamp":"2025-03-08T21:23:01.822Z"}
+{"level":"info","message":"Scheduled cleanup: Removed 0 old notifications","timestamp":"2025-03-08T21:23:01.822Z"}
+{"level":"info","message":"Notification cleanup scheduled to run daily","timestamp":"2025-03-08T21:23:01.822Z"}

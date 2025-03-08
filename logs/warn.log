@@ -55,3 +55,5 @@
 {"level":"error","message":"Error creating book: E11000 duplicate key error collection: test.books index: title_1 dup key: { title: \"where the crawdads singggggggggggggggggggggg\" }","timestamp":"2025-03-08T14:36:56.408Z"}
 {"level":"error","message":"Error creating book: Schema hasn't been registered for model \"Book\".\nUse mongoose.model(name, schema)","timestamp":"2025-03-08T14:37:15.262Z"}
 {"level":"error","message":"Error creating book: Notification validation failed: itemModel: `Book` is not a valid enum value for path `itemModel`.","timestamp":"2025-03-08T14:39:12.449Z"}
+{"error":{},"level":"error","message":"Error creating default admins","timestamp":"2025-03-08T21:14:41.630Z"}
+{"level":"error","message":"Error in scheduled notification cleanup: Operation `notifications.deleteMany()` buffering timed out after 10000ms","timestamp":"2025-03-08T21:14:51.687Z"}

@@ -10,7 +10,7 @@ export const asyncHandler = (func) => {
   };
 };
 
-export const globalErrorHandling = (error, req, res, next) => {
+export const globalErrorHandling = (error, req, res, _next) => {
   return res.status(error.status || 500).json({
     msgError: error.message, // Fix: Use message instead of msg
     status: error.status
