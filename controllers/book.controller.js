@@ -159,7 +159,7 @@ export const updateById = async (req, res, next) => {
           'Book Updated',
           `The book "${updatedBook.title}" has been updated: ${significantChanges.join(', ')}.`,
           updatedBook._id,
-          'Book'
+          'Books'
         );
         logger.info(`Notification sent to ${adminUsers.length} admin users about book update`);
       }

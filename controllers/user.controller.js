@@ -88,8 +88,8 @@ const createNewUser = async (req, res, next) => {
     'system',
     'Welcome to Online Bookstore',
     'Thank you for creating an account. Please confirm your email to start exploring our collection.',
-    null,
-    null
+    user._id,
+    'User'
   );
 
   // Notify admins about new user registration
@@ -159,8 +159,8 @@ export const confirmEmail = async (req, res, next) => {
       'system',
       'Email Confirmed Successfully',
       'Your email has been confirmed. You now have full access to all features of the Online Bookstore.',
-      null,
-      null
+      user._id,
+      'User'
     );
   }
 
@@ -283,8 +283,8 @@ export const resetPassword = async (req, res, next) => {
     'system',
     'Password Reset Successful',
     'Your password has been reset successfully. If you did not request this change, please contact support immediately.',
-    null,
-    null
+    user._id,
+    'User'
   );
 
   res
