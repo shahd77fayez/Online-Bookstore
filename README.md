@@ -118,6 +118,9 @@ A feature-rich Node.js REST API for an online bookstore platform with user authe
 
 ## API Documentation
 
+Complete API documentation is available on Postman:
+[Online Bookstore API Documentation](https://www.postman.com/interstellar-firefly-758691/nodejs-project/overview)
+
 ### Authentication
 
 - POST `/api/users/signup` - Register a new user
