@@ -1,7 +1,6 @@
 # Online Bookstore API
 
 A feature-rich Node.js REST API for an online bookstore platform with user authentication, book management, reviews, shopping cart, and order processing capabilities.
-### [Click here to watch the demo](https://drive.google.com/file/d/1z00Go4CsgjkZUj3-nn71Ta5VjKq7bRdy/view?usp=drive_link)
 
 ## Features
 
@@ -184,5 +183,3 @@ The application uses Winston for logging with different log levels:
 
 ## Base URL
 All API endpoints are accessible under: `http://3.87.183.111/api`
-
-
