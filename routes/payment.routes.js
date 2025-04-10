@@ -1,7 +1,6 @@
 // paymentRoutes.js
 import express from 'express';
 import {createPaymentIntent} from '../controllers/payment.controller.js';
-import {checkRole} from '../middlewares/roleCheck.js';
 import {auth, roles} from '../middlewares/auth.js';
 import {authorize} from '../middlewares/authorize.js';
 import {asyncHandler} from '../middlewares/ErrorHandling.js';
