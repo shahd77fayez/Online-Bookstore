@@ -1,6 +1,5 @@
 import express from 'express';
 import {getOrderHistory, placeOrder, updateOrderStatus} from '../controllers/order.controller.js';
-import {checkRole} from '../middlewares/roleCheck.js'; // Role-based check (admin)
 import {validateRequest} from '../middlewares/ValidateRequest.js';
 import {orderSchema} from '../validation/OrderValidation.js'; // Adjusted casing
 import {asyncHandler} from '../middlewares/ErrorHandling.js';
